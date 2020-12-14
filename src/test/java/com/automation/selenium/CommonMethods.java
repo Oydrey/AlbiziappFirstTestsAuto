@@ -14,67 +14,67 @@ import org.openqa.selenium.interactions.Actions;
 
 public class CommonMethods {
 
-	public static void login(WebDriver mDriver, String email, String password) {
-		WebElement vSignInButton = mDriver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
+	public static void login(WebDriver driver, String email, String password) {
+		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
 		
-		String mainWindow = mDriver.getWindowHandle();
+		String mainWindow = driver.getWindowHandle();
 		
-		Set<String> windows = mDriver.getWindowHandles();
+		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterator = windows.iterator();
 		
 		while(iterator.hasNext()) {
 			String childWindow = iterator.next();
 			
 			if(!mainWindow.equalsIgnoreCase(childWindow)) {
-				mDriver.switchTo().window(childWindow);
+				driver.switchTo().window(childWindow);
 				
-				WebElement emailField = mDriver.findElement(By.name("username"));
+				WebElement emailField = driver.findElement(By.name("username"));
 				emailField.sendKeys(email);
 				
-				WebElement passwordField = mDriver.findElement(By.name("password"));
+				WebElement passwordField = driver.findElement(By.name("password"));
 				passwordField.sendKeys(password);
 				
-				WebElement vSignButton = mDriver.findElement(By.name("commit"));
+				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-				WebElement vAccordAccessButton = mDriver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
+				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
 				vAccordAccessButton.click();
 			}
 		}
 		
-		mDriver.switchTo().window(mainWindow);
+		driver.switchTo().window(mainWindow);
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver mDriver) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
 		Thread.sleep(5000);
-		Actions builder = new Actions(mDriver);
-		builder.moveToElement(mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
+		Actions builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
 		
-		WebElement vCreatePlan = mDriver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
 		vCreatePlan.click();
 		
-		WebElement genreCommun = mDriver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = mDriver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = mDriver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = mDriver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
+		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
+		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
+		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
 		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
 		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
 		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
 		
-		WebElement confiant = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
+		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
 		confiant.click();
 		
-		WebElement inputPicture = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
+		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
 		inputPicture.sendKeys("C:/Users/Oydrey/Pictures/arbre.jpg");
 
-		WebElement valider = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
 		valider.click();
 		
-		WebElement confirmValider = mDriver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
 		confirmValider.click();
 	}
 	
