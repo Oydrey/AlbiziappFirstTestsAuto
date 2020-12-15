@@ -40,12 +40,9 @@ public class CommonMethods {
 				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-<<<<<<< HEAD
-				new WebDriverWait(mDriver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/form/input[5]")));
-				WebElement vAccordAccessButton = mDriver.findElement(ByXPath.xpath("/html/body/div[1]/div[2]/div/form/input[5]"));
-=======
+				new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/form/input[5]")));
 				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
->>>>>>> dfaa7d7de17ff75b8d1e0f8203f17f42f600a20b
+				
 				vAccordAccessButton.click();
 			}
 		}
