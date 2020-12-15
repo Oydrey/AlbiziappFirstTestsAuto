@@ -21,7 +21,7 @@ public class Goran {
 
 	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
 	
-	private WebDriver mDriver = null;
+	private WebDriver driver = null;
 	
 	private String email = "tqlgroupe1@gmail.com";
 	
@@ -30,25 +30,25 @@ public class Goran {
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		mDriver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		mDriver.navigate().to(LOGIN_URL);
+		driver.navigate().to(LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
-		mDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		mDriver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(mDriver, email, password);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(mDriver);
+		CommonMethods.login(driver, email, password);
+		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
 	}
 	
 	@After
 	public void teardown() {
-		mDriver.quit();
+		driver.quit();
 	}
 	
 }

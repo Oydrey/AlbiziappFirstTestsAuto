@@ -28,7 +28,7 @@ public class AlbiziappTest {
 
 	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
 	
-	private WebDriver mDriver = null;
+	private WebDriver driver = null;
 	
 	private String email = "tqlgroupe1@gmail.com";
 	
@@ -37,36 +37,36 @@ public class AlbiziappTest {
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		mDriver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		mDriver.navigate().to(LOGIN_URL);
+		driver.navigate().to(LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
-		mDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		mDriver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 	
 	@Test
 	public void testAuthentificationAvecIdentifiantsValides() throws InterruptedException {
-		WebElement vSignInButton = mDriver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
+		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
 		
-		String mainWindow = mDriver.getWindowHandle();
+		String mainWindow = driver.getWindowHandle();
 		
-		Set<String> windows = mDriver.getWindowHandles();
+		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterator = windows.iterator();
 		
 		while(iterator.hasNext()) {
 			String childWindow = iterator.next();
 			
 			if(!mainWindow.equalsIgnoreCase(childWindow)) {
-				mDriver.switchTo().window(childWindow);
+				driver.switchTo().window(childWindow);
 				
-				WebElement emailField = mDriver.findElement(By.name("username"));
+				WebElement emailField = driver.findElement(By.name("username"));
 				emailField.sendKeys("tqlgroupe1@gmail.com");
 				
-				WebElement passwordField = mDriver.findElement(By.name("password"));
+				WebElement passwordField = driver.findElement(By.name("password"));
 				passwordField.sendKeys("tqlgroupe1");
 				
 				//verif mail
@@ -74,43 +74,43 @@ public class AlbiziappTest {
 				//verif password
 				assertEquals("tqlgroupe1", passwordField.getAttribute("value"));
 				
-				WebElement vSignButton = mDriver.findElement(By.name("commit"));
+				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-				WebElement vAccordAccessButton = mDriver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
+				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
 				vAccordAccessButton.click();
 			}
 		}
 		
-		mDriver.switchTo().window(mainWindow);
+		driver.switchTo().window(mainWindow);
 	}
 	
 	@Test
 	public void testRenseignerReleveSurLaCarteAvecAjoutPhoto() throws InterruptedException {
-		CommonMethods.login(mDriver, email, password);
+		CommonMethods.login(driver, email, password);
 		
 		//clique sur la carte
 		Thread.sleep(5000);		//nécessaire pour que le carte charge
-		Actions builder = new Actions(mDriver);
-		builder.moveToElement(mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
+		Actions builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
 		
 		//confirme creation de relevé
-		WebElement vCreatePlan = mDriver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
 		vCreatePlan.click();
 		
 		//renseigne les champs
-		WebElement genreCommun = mDriver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = mDriver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = mDriver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = mDriver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
+		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
+		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
+		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
 		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
 		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
 		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
 		
-		WebElement confiant = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
+		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
 		confiant.click();
 		
 		/* Permet de cliquer sur l'appareil photo puis "Choisir une photo existante" *
@@ -121,7 +121,7 @@ public class AlbiziappTest {
 		chosePicture.click();
 		*/
 		
-		WebElement inputPicture = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
+		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
 		inputPicture.sendKeys("C:/Users/Oydrey/Pictures/arbre.jpg");
 		
 		//verification avant validation
@@ -131,16 +131,16 @@ public class AlbiziappTest {
 		assertEquals("Albizia Julibrissin", especeLatine.getAttribute("value"));
 		
 		//validation
-		WebElement valider = mDriver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
 		valider.click();
 		
-		WebElement confirmValider = mDriver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
 		confirmValider.click();
 	}
 	
 	@After
 	public void teardown() {
-		mDriver.quit();
+		driver.quit();
 	}
 
 }
