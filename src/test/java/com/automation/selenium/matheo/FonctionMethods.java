@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,6 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 public class FonctionMethods {
 
 	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
 		
@@ -28,13 +30,10 @@ public class FonctionMethods {
 			
 			if(!mainWindow.equalsIgnoreCase(childWindow)) {
 				driver.switchTo().window(childWindow);
-				Thread.sleep(5000);
 				WebElement emailField = driver.findElement(By.name("username"));
 				emailField.sendKeys(email);
-				Thread.sleep(500);
 				WebElement passwordField = driver.findElement(By.name("password"));
 				passwordField.sendKeys(password);
-				Thread.sleep(500);
 				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
@@ -46,12 +45,11 @@ public class FonctionMethods {
 		driver.switchTo().window(mainWindow);
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
-		Thread.sleep(5000);
+	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver) throws InterruptedException {		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
-		
 		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
 		vCreatePlan.click();
 		
@@ -67,9 +65,6 @@ public class FonctionMethods {
 		
 		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
 		confiant.click();
-		
-		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
-		inputPicture.sendKeys("C:/Users/Oydrey/Pictures/arbre.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
 		valider.click();

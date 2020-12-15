@@ -1,21 +1,15 @@
+// verif fonction
+
 package com.automation.selenium.matheo;
 
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
+import org.junit.Test;
+import org.junit.Before;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
+import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -31,22 +25,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-
-public class CTRF1281VoirSonStatutTest {
+public class CTRF1272gagneuntrofeTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
-  
-	//DesiredCapabilities.firefox()
-  private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
-  private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
-	
   @Before
   public void setUp() throws MalformedURLException {
-    driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
@@ -55,14 +43,23 @@ public class CTRF1281VoirSonStatutTest {
     driver.quit();
   }
   @Test
-  public void cTRF1281VoirSonStatut() throws InterruptedException {
-	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  public void cTRF1272gagneuntrofe() throws InterruptedException {
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("https://albiziapp.ozytis.fr/");
-    driver.manage().window().setSize(new Dimension(1382, 744));
+    driver.manage().window().setSize(new Dimension(785, 625));
     FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
-    driver.findElement(By.xpath("//div[@id=\'root\']/div/div[2]/button[3]/span/span")).click();
-    driver.findElement(By.xpath("//div[@id=\'root\']/div/div/ul/li[4]/div/span")).click();
-    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul")).isDisplayed());
-    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).isDisplayed());
+    driver.findElement(By.cssSelector(".fa-trophy")).click();
+    WebElement verif = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
+    if (verif.getText() == "0 / 5") {
+    	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
+		for(int i = 1; i < 6; i++) { //on fait la promiere misson (5 relve)
+			FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver);
+          	System.out.println("Printing " + verif.getText() + i);
+		}
+		
+	}
+    driver.findElement(By.cssSelector(".fa-trophy")).click();
+    WebElement verif2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
+    assertTrue(verif2.getText().matches("([1-5]) / 5"));
   }
 }
