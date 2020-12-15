@@ -14,20 +14,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
-	public static void login(WebDriver driver, String email, String password) {
+	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
 		
 		String mainWindow = driver.getWindowHandle();
 		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterator = windows.iterator();
+		driver.switchTo().window(iterator.next());
 		
 		//Juste pour moi faite pas attention - Salim
 		if(iterator.hasNext())
 		{
 			driver.switchTo().window(iterator.next());
+			Thread.sleep(2000);
 			driver.close();
 			driver.switchTo().window(mainWindow);
 		}
-		//fin		
+		//fin			
 		
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
