@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
@@ -38,7 +40,8 @@ public class CommonMethods {
 				WebElement vSignButton = mDriver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-				WebElement vAccordAccessButton = mDriver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
+				new WebDriverWait(mDriver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/form/input[5]")));
+				WebElement vAccordAccessButton = mDriver.findElement(ByXPath.xpath("/html/body/div[1]/div[2]/div/form/input[5]"));
 				vAccordAccessButton.click();
 			}
 		}
