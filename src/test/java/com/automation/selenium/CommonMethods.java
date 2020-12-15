@@ -1,7 +1,5 @@
 package com.automation.selenium;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.Iterator;
 import java.util.Set;
 
@@ -17,13 +15,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CommonMethods {
 
 	public static void login(WebDriver driver, String email, String password) {
+		
+		String mainWindow = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+		Iterator<String> iterator = windows.iterator();
+		
+		//Juste pour moi faite pas attention - Salim
+		if(iterator.hasNext())
+		{
+			driver.switchTo().window(iterator.next());
+			driver.close();
+			driver.switchTo().window(mainWindow);
+		}
+		//fin		
+		
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
 		
-		String mainWindow = driver.getWindowHandle();
 		
-		Set<String> windows = driver.getWindowHandles();
-		Iterator<String> iterator = windows.iterator();
+		
+		windows = driver.getWindowHandles();
+		iterator = windows.iterator();
 		
 		while(iterator.hasNext()) {
 			String childWindow = iterator.next();
