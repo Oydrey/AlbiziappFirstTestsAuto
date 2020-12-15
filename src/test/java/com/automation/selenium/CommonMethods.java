@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
-	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
+	public static void login(WebDriver driver, String email, String password) {
 		
 		String mainWindow = driver.getWindowHandle();
 		Set<String> windows = driver.getWindowHandles();
@@ -25,16 +26,13 @@ public class CommonMethods {
 		if(iterator.hasNext())
 		{
 			driver.switchTo().window(iterator.next());
-			Thread.sleep(2000);
 			driver.close();
 			driver.switchTo().window(mainWindow);
 		}
 		//fin			
 		
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
-		vSignInButton.click();
-		
-		
+		vSignInButton.click();	
 		
 		windows = driver.getWindowHandles();
 		iterator = windows.iterator();
@@ -70,7 +68,7 @@ public class CommonMethods {
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		vCreatePlan.click();
 		
 		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));

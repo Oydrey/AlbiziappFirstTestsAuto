@@ -35,7 +35,7 @@ public class Salim {
 		// And now use this to open base url
 		mDriver.navigate().to(LOGIN_URL);
 
-		// Ask to the driver to wait for 3s when an element is not found
+		// Ask to the driver to wait for 10s when an element is not found
 		mDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		mDriver.manage().window().maximize();
 	}
