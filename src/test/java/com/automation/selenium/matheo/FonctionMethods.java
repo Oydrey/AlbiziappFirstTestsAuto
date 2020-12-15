@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,8 +51,8 @@ public class FonctionMethods {
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
-		vCreatePlan.click();
+		Thread.sleep(5000);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
 		
 		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
 		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
@@ -65,12 +66,10 @@ public class FonctionMethods {
 		
 		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
 		confiant.click();
-
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
-		valider.click();
-		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
-		confirmValider.click();
+		Thread.sleep(5000);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
+		Thread.sleep(5000);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
 	}
 	
 }

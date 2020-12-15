@@ -1,5 +1,3 @@
-// verif fonction
-
 package com.automation.selenium.matheo;
 
 import org.junit.Test;
@@ -50,14 +48,15 @@ public class CTRF1272gagneuntrofeTest {
     FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
     driver.findElement(By.cssSelector(".fa-trophy")).click();
     WebElement verif = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
-    if (verif.getText() == "0 / 5") {
+    //if (verif.getText() == "0 / 5") {
     	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 		for(int i = 1; i < 6; i++) { //on fait la promiere misson (5 relve)
 			FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver);
-          	System.out.println("Printing " + verif.getText() + i);
+          	System.out.println("Printing " + i);
 		}
 		
-	}
+	//}
+		Thread.sleep(10000);
     driver.findElement(By.cssSelector(".fa-trophy")).click();
     WebElement verif2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
     assertTrue(verif2.getText().matches("([1-5]) / 5"));
