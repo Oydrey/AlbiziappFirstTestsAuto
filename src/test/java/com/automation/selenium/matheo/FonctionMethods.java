@@ -15,7 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class FonctionMethods {
 
-	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
+	public static void login(WebDriver driver, String email, String password) {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
