@@ -1,0 +1,10 @@
+CTRF07.6-1 - Avertir du nombre de suspiscions : Les notifications n'apparaissent pas avec le driver
+CTRF07.5-1 - Avertir du nombre de confirmations : Les notifications n'apparaissent pas avec le driver
+CTRF07.7-1 : Ne suspecter un relevé qu'une seule fois : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07.4-1 : Supprimer un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07.3-1 : Tagger un relevé comme douteux : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07.2-1 : Confirmer un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07.1-6 : Modifier le degré de confiance d'un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07.1-5 : Rajouter une photo à un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07-2 : Consulter le relevé d'un autre utilisateur : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRF07-1 : Consulter un de ses relevés : Impossibilité de cliquer sur un relevé pour accéder à ses détails
