@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRF301VoirSesReleve {
+public class CTRF3011ConsultéSesReleve {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -49,13 +49,11 @@ public class CTRF301VoirSesReleve {
     FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
 	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 	// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
-	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","Confiant");
+	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","Peu confiant");
     driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();
-    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]/p")).click();
-    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div/span")).isDisplayed());
-    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div/div/button[1]/span[1]")).isDisplayed());
-    WebElement non = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div/p"));
-	Assert.assertEquals(non.getText(),"duzahfiuazh");//verif le non de l'auteur du releve
+    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul")).isDisplayed());
+    assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).isDisplayed());
     FonctionMethods.SuprimeReleve1ere(driver);
+	
   }
 }
