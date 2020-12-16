@@ -92,7 +92,7 @@ public class CommonMethods {
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
@@ -123,7 +123,7 @@ public class CommonMethods {
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
@@ -153,7 +153,7 @@ public class CommonMethods {
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
@@ -180,7 +180,7 @@ public class CommonMethods {
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
@@ -211,7 +211,7 @@ public class CommonMethods {
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
@@ -243,7 +243,6 @@ public class CommonMethods {
 		Thread.sleep(2000);
 		
 		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
-
 		confirmValider.click();
 	}
 	
