@@ -19,6 +19,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.automation.selenium.CommonMethods;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -26,7 +29,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class CTRF1272gagneuntrofeTest {
+public class CTRF1321suprimeunrelveTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -41,24 +44,16 @@ public class CTRF1272gagneuntrofeTest {
     driver.quit();
   }
   @Test
-  public void cTRF1272gagneuntrofe() throws InterruptedException {
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.get("https://albiziapp.ozytis.fr/");
-    driver.manage().window().setSize(new Dimension(785, 625));
-    FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
-    driver.findElement(By.cssSelector(".fa-trophy")).click();
-    WebElement verif = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
-    /*if (verif.getText() == "0 / 5") {
-    	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		for(int i = 1; i < 6; i++) { //on fait la promiere misson (5 relve)
-          	System.out.println("Printing " + i);
-          	// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
-        	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
-        	FonctionMethods.SuprimeReleve1ere(driver);
-		}
-	}*/
-    driver.findElement(By.cssSelector(".fa-trophy")).click();
-    WebElement verif2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
-    assertTrue(verif2.getText().matches("([1-5]) / 5"));
+  public void cTRF1321suprimeunrelve() throws InterruptedException {
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  driver.get("https://albiziapp.ozytis.fr/");
+	  driver.manage().window().setSize(new Dimension(785, 625));
+	  FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
+	  driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
+	  // diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
+	  FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,10,10,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","Confiant");
+	  FonctionMethods.SuprimeReleve1ere(driver);
+      driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();
+      assertFalse(driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).size() > 0);
   }
 }
