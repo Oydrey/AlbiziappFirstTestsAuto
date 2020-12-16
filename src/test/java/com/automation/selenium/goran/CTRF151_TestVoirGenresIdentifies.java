@@ -4,19 +4,21 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
 
-public class TestVoirNombreIdentificactions {
+public class CTRF151_TestVoirGenresIdentifies {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -46,15 +48,17 @@ public class TestVoirNombreIdentificactions {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[2]/button[4]/span/span[1]")).click();
-		String text = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/div[4]/button/div[2]/p")).getText();
-		int nombreIdentificationAvantReleve = Integer.valueOf(text.split(" ")[3]);
-		driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
 		driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[2]/button[4]/span/span[1]")).click();
-		text = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/div[4]/button/div[2]/p")).getText();
-		int nombreIdentificationApresReleve = Integer.valueOf(text.split(" ")[3]);
-		assertTrue((nombreIdentificationAvantReleve + 1)==nombreIdentificationApresReleve);
+		boolean isPresent = false;
+		List <WebElement> parentElements = driver.findElements(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[2]//*"));
+		for (WebElement element : parentElements) {
+			String nomGenre = element.findElement(ByXPath.xpath(".//button/div[2]/h2")).getText();
+			if (nomGenre.equals("Albizia Julibrissin")) {
+				isPresent = true;
+			}
+		}
+		assertTrue(isPresent);
 	}
 	
 	@After
