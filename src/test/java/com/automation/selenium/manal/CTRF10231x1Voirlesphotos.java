@@ -32,6 +32,8 @@ public class CTRF10231x1Voirlesphotos {
     driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+    private String email = "tqlgroupe1@gmail.com";
+  private String password = "tqlgroupe1";
   }
   @After
   public void tearDown() {
@@ -40,6 +42,7 @@ public class CTRF10231x1Voirlesphotos {
   @Test
   public void test49() throws InterruptedException {
     driver.get("https://albiziapp.ozytis.fr/");
+    CommonMethods.login(driver, email, password);
     driver.manage().window().setSize(new Dimension(1050, 670));
     driver.findElement(By.cssSelector(".MuiIconButton-label path")).click();
     driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) > .MuiListItemIcon-root")).click();
