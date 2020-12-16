@@ -1,23 +1,13 @@
 package com.automation.selenium.matheo;
 
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
+import org.junit.Test;
+import org.junit.Before;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
+import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,27 +19,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
-
-public class CTRF1281VoirSonStatutTest {
+public class CTRF301VoirSesReleve {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
-  	
   @Before
   public void setUp() throws MalformedURLException {
-    driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.chrome());
+    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
@@ -58,16 +42,18 @@ public class CTRF1281VoirSonStatutTest {
     driver.quit();
   }
   @Test
-  public void cTRF1281VoirSonStatut() throws InterruptedException {
-	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  public void cTRF1272gagneuntrofe() throws InterruptedException {
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     driver.get("https://albiziapp.ozytis.fr/");
-    driver.manage().window().setSize(new Dimension(1382, 744));
-    FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
-    driver.findElement(By.xpath("//div[@id=\'root\']/div/div[2]/button[3]/span/span")).click();
-    driver.findElement(By.xpath("//div[@id=\'root\']/div/div/ul/li[4]/div/span")).click();
+    driver.manage().window().setSize(new Dimension(785, 625));
+    FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
+	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
+	// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
+	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","Peu confiant");
+    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();
     assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul")).isDisplayed());
     assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).isDisplayed());
-    WebElement classe  = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]"));
-    Assert.assertEquals(classe.getAttribute("class"),"MuiListItem-root MuiListItem-gutters");
+    FonctionMethods.SuprimeReleve1ere(driver);
+	
   }
 }
