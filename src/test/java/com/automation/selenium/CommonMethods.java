@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -85,12 +84,12 @@ public class CommonMethods {
 		confiant.click();
 		
 		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
-		inputPicture.sendKeys("C:/Users/Oydrey/Pictures/arbre.jpg");
+		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
 		valider.click();
 		
-		WebElement confirmValider = driver.findElement(ByXPath.xpath("/html/body/div[5]/div[3]/div/div[2]/button[2]"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 		confirmValider.click();
 	}
 	
