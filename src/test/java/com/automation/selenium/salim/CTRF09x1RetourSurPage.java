@@ -1,5 +1,7 @@
 package com.automation.selenium.salim;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -7,13 +9,18 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.matheo.CTRF121accedscore;
+import com.automation.selenium.matheo.Matheo;
 
-public class Salim {
+public class CTRF09x1RetourSurPage {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -43,7 +50,10 @@ public class Salim {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
+		driver.findElement(By.cssSelector(".fa-trophy")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+		assertEquals("https://albiziapp.ozytis.fr/score", driver.getCurrentUrl());
 	}
 	
 	@After

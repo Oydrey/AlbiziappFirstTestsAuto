@@ -7,13 +7,14 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
 
-public class Salim {
+public class CTRND01x6RecevoirNotifPoints {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -35,7 +36,7 @@ public class Salim {
 		// And now use this to open base url
 		driver.navigate().to(LOGIN_URL);
 
-		// Ask to the driver to wait for 10s when an element is not found
+		// Ask to the driver to wait for 3s when an element is not found
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
@@ -44,6 +45,9 @@ public class Salim {
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
 		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
+		Thread.sleep(15000);
+		//Pas de notif
+		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 	}
 	
 	@After
