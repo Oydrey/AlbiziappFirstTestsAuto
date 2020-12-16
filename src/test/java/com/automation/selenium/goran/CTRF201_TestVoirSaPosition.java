@@ -16,7 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
 
-public class CTRF201_TestCentrerLaCarte {
+public class CTRF201_TestVoirSaPosition {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -46,9 +46,7 @@ public class CTRF201_TestCentrerLaCarte {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();
-		String position = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]")).getAttribute("style");
-		assertTrue(position.equals("transform: translate3d(0px, 1px, 0px);"));
+		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[4]/img")).isDisplayed());
 	}
 	
 	@After
