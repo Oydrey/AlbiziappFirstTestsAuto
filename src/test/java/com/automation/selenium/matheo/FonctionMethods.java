@@ -15,10 +15,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.interactions.Actions;
 
+import com.automation.selenium.CommonMethods;
+
 public class FonctionMethods {
 
 	public static void login(WebDriver driver, String email, String password) {
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		CommonMethods.login(driver, email, password);
+	}
+		/*driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
 		vSignInButton.click();
 		
@@ -45,7 +49,7 @@ public class FonctionMethods {
 		}
 		
 		driver.switchTo().window(mainWindow);
-	}
+	}*/
 	
 	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String niveuaxdeconfiant) throws InterruptedException {		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -83,11 +87,8 @@ public class FonctionMethods {
 		}
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
+		/*
 		//verif info :
-		Thread.sleep(4000);
-		for(int i = 1; i < 4; i++) { //pour regle un probleme de zoom
-		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[1]")));
-		}
 		Thread.sleep(4000);
 		Actions builder1 = new Actions(driver);
 		builder1.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0).click();
@@ -102,6 +103,7 @@ public class FonctionMethods {
 		Assert.assertEquals(Nomvernaculaire.getText(),commonSpeciesSelect);
 		Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[6]/div/p")).getText(),niveuaxdeconfiant);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]"));
+		*/
 	}
 	
 	public static void SuprimeReleve1ere(WebDriver driver) {
