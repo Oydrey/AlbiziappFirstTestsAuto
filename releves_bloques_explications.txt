@@ -8,3 +8,4 @@ CTRF07.1-6 : Modifier le degré de confiance d'un relevé : Impossibilité de cl
 CTRF07.1-5 : Rajouter une photo à un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
 CTRF07-2 : Consulter le relevé d'un autre utilisateur : Impossibilité de cliquer sur un relevé pour accéder à ses détails
 CTRF07-1 : Consulter un de ses relevés : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRND01-6 : Recevoir une notification de points : Pas de notification sur Selenium

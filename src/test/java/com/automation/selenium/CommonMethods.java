@@ -59,6 +59,9 @@ public class CommonMethods {
 		}
 		
 		driver.switchTo().window(mainWindow);
+		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches("https://albiziapp.ozytis.fr/map"));
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();//centre la carte
+		
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
@@ -181,6 +184,7 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecPeuConfiant(WebDriver driver) throws InterruptedException {
+		Thread.sleep(2000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
