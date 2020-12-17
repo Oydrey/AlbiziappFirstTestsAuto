@@ -108,7 +108,7 @@ public class CommonMethods {
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveByOffset(200, 100).click().build().perform();
 		
 		WebElement vCreatePlan = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
 
@@ -142,7 +142,7 @@ public class CommonMethods {
 	public static void testRenseignerReleveSurLaCarteSansAjoutPhoto(WebDriver driver) throws InterruptedException {
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveByOffset(200, 100).click().build().perform();
 		
 		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
 		vCreatePlan.click();

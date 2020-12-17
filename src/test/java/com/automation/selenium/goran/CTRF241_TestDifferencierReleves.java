@@ -27,9 +27,9 @@ public class CTRF241_TestDifferencierReleves {
 	
 	private WebDriver driver = null;
 	
-	private String email = "goran.sarr@gmail.com";
+	private String email = "oydrey@gmail.com";
 	
-	private String password = "*Oxana36*";
+	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
@@ -46,8 +46,8 @@ public class CTRF241_TestDifferencierReleves {
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(driver, email, password);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
+		CommonMethods.login(driver, email, password); 
+		CommonMethods.testRenseignerReleveSurLaCarteSansAjoutPhoto(driver);
 		String color = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("fill-opacity");
 		CommonMethods.testSeDeconnecter(driver);
 		CommonMethods.login(driver, "tqlgroupe1@gmail.com", "tqlgroupe1");

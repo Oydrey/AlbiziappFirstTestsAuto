@@ -27,9 +27,9 @@ public class CTRF161_TestVoirNombreIdentificactions {
 	
 	private WebDriver driver = null;
 	
-	private String email = "goran.sarr@gmail.com";
+	private String email = "oydrey@gmail.com";
 	
-	private String password = "*Oxana36*";
+	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
