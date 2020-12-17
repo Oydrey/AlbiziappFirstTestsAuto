@@ -8,3 +8,5 @@ CTRF07.1-6 : Modifier le degré de confiance d'un relevé : Impossibilité de cl
 CTRF07.1-5 : Rajouter une photo à un relevé : Impossibilité de cliquer sur un relevé pour accéder à ses détails
 CTRF07-2 : Consulter le relevé d'un autre utilisateur : Impossibilité de cliquer sur un relevé pour accéder à ses détails
 CTRF07-1 : Consulter un de ses relevés : Impossibilité de cliquer sur un relevé pour accéder à ses détails
+CTRND01-9 : La notification disparait lorsqu'on clique dessus : Impossible de cliquer sur les notifications
+CTRND01-7 : Le timer de la notification s'arrête quand la souris est au-dessus : Impossible de passer la souris lors e l'execution du test
