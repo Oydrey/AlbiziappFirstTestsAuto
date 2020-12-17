@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -48,7 +49,7 @@ public class FonctionMethods {
 	
 	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String niveuaxdeconfiant) throws InterruptedException {		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		  
+		Thread.sleep(5000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0).click();
 		builder.moveByOffset(x,y).click().build().perform();
@@ -81,8 +82,26 @@ public class FonctionMethods {
 			peuxconfiant.click();
 		}
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
-		
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
+		//verif info :
+		Thread.sleep(4000);
+		for(int i = 1; i < 4; i++) { //pour regle un probleme de zoom
+		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[1]")));
+		}
+		Thread.sleep(4000);
+		Actions builder1 = new Actions(driver);
+		builder1.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0).click();
+		builder1.moveByOffset(x,y).click().build().perform();
+		WebElement Genre = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[2]/div/p"));
+		Assert.assertEquals(Genre.getText(),GenusSelect);
+		WebElement Genrevernaculaire =driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div/p"));
+		Assert.assertEquals(Genrevernaculaire.getText(),commonGenusSelect);
+		WebElement Espèce = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[4]/div/p"));
+		Assert.assertEquals(Espèce.getText(),SpeciesSelect);
+		WebElement Nomvernaculaire =driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[5]/div/p"));
+		Assert.assertEquals(Nomvernaculaire.getText(),commonSpeciesSelect);
+		Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[6]/div/p")).getText(),niveuaxdeconfiant);
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]"));
 	}
 	
 	public static void SuprimeReleve1ere(WebDriver driver) {
