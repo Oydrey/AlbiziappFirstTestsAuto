@@ -43,7 +43,7 @@ public class CTRF10231x2Naviguerentrelesphotos {
     driver.quit();
   }
   @Test
-  public void test48() {
+  public void test48() throws InterruptedException{
     driver.get("https://albiziapp.ozytis.fr/");
     CommonMethods.login(driver, email, password);
     driver.manage().window().setSize(new Dimension(1050, 670));
