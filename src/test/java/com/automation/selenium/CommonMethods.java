@@ -62,7 +62,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
@@ -97,7 +96,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteSansAjoutPhoto(WebDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
@@ -128,7 +126,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecUniquementLeGenreEtAjoutPhoto(WebDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
@@ -158,7 +155,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecUniquementLeGenreSansAjoutPhoto(WebDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
@@ -185,7 +181,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecPeuConfiant(WebDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
@@ -216,7 +211,6 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecMoyennementConfiant(WebDriver driver) throws InterruptedException {
-		Thread.sleep(1000);
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(100, 100).click().build().perform();
