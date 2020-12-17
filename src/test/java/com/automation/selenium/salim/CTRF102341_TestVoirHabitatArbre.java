@@ -15,25 +15,25 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import com.automation.selenium.CommonMethods;
 
-public class CTRF29x1AjouterReleveHorsLigne {
+public class CTRF102341_TestVoirHabitatArbre {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
 	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
 
 	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
-	
+
 	private WebDriver driver = null;
-	
+
 	private String email = "tqlgroupe1@gmail.com";
-	
+
 	private String password = "tqlgroupe1";
-	
+
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
-		
+
 		// And now use this to open base url
 		driver.navigate().to(LOGIN_URL);
 
@@ -41,16 +41,24 @@ public class CTRF29x1AjouterReleveHorsLigne {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
-	
+
 	@Test
 	public void test() throws InterruptedException {
-		//impossible pour l'instant
-		assertEquals("os", "kour");
+		CommonMethods.login(driver, email, password);	
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();//home
+		driver.findElement(By.xpath("//span[contains(., 'Flore')]")).click();//flore
+		driver.navigate().refresh();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div/input")).sendKeys("chene vert");//recherche
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/div/div[1]")).click();//clique sur le chene vert	
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/div/div/button[3]")).click();//habitat
+		String habitatText = "Courant dans le sud de la France, il se développe dans les garrigues et les forêts. Il est résistant à la chaleur, à la sécheresse, au vent mais aussi au froid. Il pousse sans entretien à partir du moment qu?il se trouve au soleil. Il accepte tous les types de sols, même s?il a une préférence pour les sols calcaires, profonds et bien drainés. Il s?enracine profondément pour subvenir à ses besoins en eau.";
+		assertEquals(habitatText, driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[3]/p[2]")).getText());
 	}
-	
+
 	@After
 	public void teardown() {
 		driver.quit();
 	}
-	
+
 }
