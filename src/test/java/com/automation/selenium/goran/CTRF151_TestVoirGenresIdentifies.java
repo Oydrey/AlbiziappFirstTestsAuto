@@ -17,6 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF151_TestVoirGenresIdentifies {
 
@@ -59,6 +60,7 @@ public class CTRF151_TestVoirGenresIdentifies {
 			}
 		}
 		assertTrue(isPresent);
+		FonctionMethods.SuprimeReleve1ere(driver);
 	}
 	
 	@After

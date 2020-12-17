@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF251_TestVoirReleveAutreUtilisateur {
 
@@ -48,11 +49,13 @@ public class CTRF251_TestVoirReleveAutreUtilisateur {
 		CommonMethods.login(driver, email, password);
 		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
 		String identifier = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("d");
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
-		driver.findElement(By.xpath("/html/body/div[6]/div[3]/ul/div[3]")).click();
+		CommonMethods.testSeDeconnecter(driver);
 		CommonMethods.login(driver, "tqlgroupe1@gmail.com", "tqlgroupe1");
 		String identifierDernierReleve = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("d");
 		assertTrue(identifier.equals(identifierDernierReleve));
+		CommonMethods.testSeDeconnecter(driver);
+		CommonMethods.login(driver, email, password);
+		FonctionMethods.SuprimeReleve1ere(driver);
 	}
 	
 	@After

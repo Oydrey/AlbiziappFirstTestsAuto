@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF161_TestVoirNombreIdentificactions {
 
@@ -55,6 +56,7 @@ public class CTRF161_TestVoirNombreIdentificactions {
 		text = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/div[4]/button/div[2]/p")).getText();
 		int nombreIdentificationApresReleve = Integer.valueOf(text.split(" ")[3]);
 		assertTrue((nombreIdentificationAvantReleve + 1)==nombreIdentificationApresReleve);
+		FonctionMethods.SuprimeReleve1ere(driver);
 	}
 	
 	@After

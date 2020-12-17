@@ -65,6 +65,47 @@ public class CommonMethods {
 		
 	}
 	
+	public static void testSeDeconnecter(WebDriver driver) {
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+		driver.findElement(By.xpath("/html/body/div[6]/div[3]/ul/div[3]")).click();
+		
+		String mainWindow = driver.getWindowHandle();
+		Set<String> windows = driver.getWindowHandles();
+		Iterator<String> iterator = windows.iterator();
+		driver.switchTo().window(iterator.next());
+		
+		//Juste pour moi faite pas attention - Salim
+		if(iterator.hasNext())
+		{
+			driver.switchTo().window(iterator.next());
+			driver.close();
+			driver.switchTo().window(mainWindow);
+		}
+		//fin			
+		
+		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
+		vSignInButton.click();	
+		
+		windows = driver.getWindowHandles();
+		iterator = windows.iterator();
+		
+		while(iterator.hasNext()) {
+			String childWindow = iterator.next();
+			
+			if(!mainWindow.equalsIgnoreCase(childWindow)) {
+				driver.switchTo().window(childWindow);
+				
+				driver.findElement(By.xpath("//*[@id=\"menu-icon\"]")).click();
+				driver.findElement(By.xpath("/html/body/header/nav[2]/div/a")).click();
+				driver.findElement(By.xpath("/html/body/header/nav[2]/div/div/a[4]")).click();
+				driver.close();
+				
+			}
+		}
+		
+		driver.switchTo().window(mainWindow);
+	}
+	
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
