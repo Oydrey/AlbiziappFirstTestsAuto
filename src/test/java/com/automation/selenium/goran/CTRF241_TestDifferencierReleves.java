@@ -15,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF241_TestDifferencierReleves {
 
@@ -48,12 +49,14 @@ public class CTRF241_TestDifferencierReleves {
 		CommonMethods.login(driver, email, password);
 		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
 		String color = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("fill-opacity");
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
-		driver.findElement(By.xpath("/html/body/div[6]/div[3]/ul/div[3]")).click();
+		CommonMethods.testSeDeconnecter(driver);
 		CommonMethods.login(driver, "tqlgroupe1@gmail.com", "tqlgroupe1");
 		String colorDernierReleve = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("fill-opacity");
 		assertTrue(color.equals("0.5"));
 		assertTrue(colorDernierReleve.equals("0"));
+		CommonMethods.testSeDeconnecter(driver);
+		CommonMethods.login(driver, email, password);
+		FonctionMethods.SuprimeReleve1ere(driver);
 	}
 	
 	@After
