@@ -13,7 +13,8 @@ import com.automation.selenium.CommonMethods;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRF181_AccederAuxMissionsDepuisLeMenuPrincipal {
+public class CTRF181_TestAccederAuxMissionsDepuisLeMenuPrincipal {
+	
   private WebDriver driver;
   private String email = "tqlgroupe1@gmail.com";
   private String password = "tqlgroupe1";

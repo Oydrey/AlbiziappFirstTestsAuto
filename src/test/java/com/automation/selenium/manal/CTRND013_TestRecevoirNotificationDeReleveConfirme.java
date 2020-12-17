@@ -1,4 +1,5 @@
 package com.automation.selenium.manal;
+
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
@@ -12,7 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRND013_RecevoirNotificationDeReleveConfirme {
+public class CTRND013_TestRecevoirNotificationDeReleveConfirme {
+	
 	private WebDriver driver;
 	
 	@Before

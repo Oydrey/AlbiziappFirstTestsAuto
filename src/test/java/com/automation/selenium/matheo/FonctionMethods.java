@@ -1,12 +1,7 @@
 package com.automation.selenium.matheo;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Iterator;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;

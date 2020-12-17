@@ -14,7 +14,8 @@ import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRF2611_VoirAvancementDeMissionEnCours {
+public class CTRF2611_TestVoirAvancementDeMissionEnCours {
+	
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
 	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";

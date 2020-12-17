@@ -13,7 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRF141_ReprendreMissionEnCours {
+public class CTRF141_TestReprendreMissionEnCours {
+	
 	private WebDriver driver;
 	
 	@Before

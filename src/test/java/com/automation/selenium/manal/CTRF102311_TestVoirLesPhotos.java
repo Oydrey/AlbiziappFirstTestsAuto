@@ -1,7 +1,6 @@
 package com.automation.selenium.manal;
 
 import org.junit.Test;
-
 import org.junit.Before;
 import org.junit.After;
 import org.openqa.selenium.By;
@@ -15,7 +14,8 @@ import com.automation.selenium.CommonMethods;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CTRF102312_NaviguerEntreLesPhotos {
+public class CTRF102311_TestVoirLesPhotos {
+	
 	private WebDriver driver;
 	private String email = "tqlgroupe1@gmail.com";
 	private String password = "tqlgroupe1";
@@ -25,23 +25,29 @@ public class CTRF102312_NaviguerEntreLesPhotos {
 		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
 	}
 	
-	@After
-	public void tearDown() {
-		driver.quit();
-	}
-	
 	@Test
-	public void test() throws InterruptedException{
+	public void test() throws InterruptedException {
 		driver.get("https://albiziapp.ozytis.fr/");
 		CommonMethods.login(driver, email, password);
 		driver.manage().window().setSize(new Dimension(1050, 670));
-		driver.findElement(By.cssSelector(".MuiIconButton-label > .MuiSvgIcon-root")).click();
-		driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) .MuiTypography-root")).click();
-		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".MuiIconButton-label path")).click();
+		driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) > .MuiListItemIcon-root")).click();
 		driver.findElement(By.cssSelector(".MuiInputBase-input")).click();
 		driver.findElement(By.cssSelector(".MuiInputBase-input")).sendKeys("chene vert");
 		driver.findElement(By.cssSelector(".MuiListItemText-primary")).click();
 		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".material-icons:nth-child(2)")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".material-icons:nth-child(3)")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".material-icons:nth-child(4)")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector(".material-icons:nth-child(5)")).click();
+	}
+	
+	@After
+	public void tearDown() {
+		driver.quit();
 	}
 }
 
