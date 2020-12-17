@@ -16,7 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
 
-public class CTRF061_TestCentrerLaCarte {
+public class CTRF031_TestZoomerSurLaCarte {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -46,9 +46,12 @@ public class CTRF061_TestCentrerLaCarte {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();
-		String position = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]")).getAttribute("style");
-		assertTrue(position.equals("transform: translate3d(0px, 0px, 0px);"));
+		String style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
+		int scale = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[1]")).click();
+		style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
+		int scaleAfterZoom = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
+		assertTrue((scale*2)==scaleAfterZoom);
 	}
 	
 	@After

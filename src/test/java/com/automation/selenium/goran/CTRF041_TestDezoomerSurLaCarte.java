@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -11,12 +12,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
 
-public class CTRF061_TestCentrerLaCarte {
+public class CTRF041_TestDezoomerSurLaCarte {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -46,9 +49,12 @@ public class CTRF061_TestCentrerLaCarte {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();
-		String position = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]")).getAttribute("style");
-		assertTrue(position.equals("transform: translate3d(0px, 0px, 0px);"));
+		String style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
+		int scale = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[2]")).click();
+		style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
+		int scaleAfterDezoom = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
+		assertTrue((scaleAfterDezoom*2)==scale);
 	}
 	
 	@After
