@@ -10,4 +10,6 @@ CTRF07-2 : Consulter le relevé d'un autre utilisateur : Impossibilité de cliqu
 CTRF07-1 : Consulter un de ses relevés : Impossibilité de cliquer sur un relevé pour accéder à ses détails
 CTRND01-6 : Recevoir une notification de points : Pas de notification sur Selenium
 CTRND01-9 : La notification disparait lorsqu'on clique dessus : Impossible de cliquer sur les notifications
-CTRND01-7 : Le timer de la notification s'arrête quand la souris est au-dessus : Impossible de passer la souris lors de l'execution du test
+CTRND01-7 : Le timer de la notification s'arrête quand la souris est au-dessus : Impossible de passer la souris lors e l'execution du test
+CTRND01-4 : Recevoir une notification de relevé confirmé d'un relevé modifier : Pas de notif & modif non fonctionnelle
+CTRF29-1 : Ajouter les relevés hors-ligne: Impossible à faire car fonctionnalité non ajouté

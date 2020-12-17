@@ -48,17 +48,30 @@ public class CTRF1272gagneuntrofeTest {
     FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
     driver.findElement(By.cssSelector(".fa-trophy")).click();
     WebElement verif = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
-    /*if (verif.getText() == "0 / 5") {
+    /*System.out.println("Printing " + verif.getText());
+    String a = verif.getText();
+    System.out.println("Printing " + a);
+    if (a.equals("0 / 5")) {
     	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		for(int i = 1; i < 6; i++) { //on fait la promiere misson (5 relve)
-          	System.out.println("Printing " + i);
+    	   //on fait la promiere misson (5 relve)
           	// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
+        	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,200,200,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
+        	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,500,500,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
+        	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,200,500,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
+        	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,500,200,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
         	FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","Confiant");
-        	FonctionMethods.SuprimeReleve1ere(driver);
-		}
+		
 	}*/
     driver.findElement(By.cssSelector(".fa-trophy")).click();
     WebElement verif2 = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div[1]/p"));
     assertTrue(verif2.getText().matches("([1-5]) / 5"));
+    /*//on suprime les 5 releve
+    if (a.equals("0 / 5")) {
+    FonctionMethods.SuprimeReleve1ere(driver);
+    FonctionMethods.SuprimeReleve1ere(driver);
+    FonctionMethods.SuprimeReleve1ere(driver);
+    FonctionMethods.SuprimeReleve1ere(driver);
+    FonctionMethods.SuprimeReleve1ere(driver);
+    }*/
   }
 }

@@ -16,10 +16,11 @@ public class CommonMethods {
 
 	public static void login(WebDriver driver, String email, String password) {
 		
-		String mainWindow = driver.getWindowHandle();
+		
 		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterator = windows.iterator();
 		driver.switchTo().window(iterator.next());
+		String mainWindow = driver.getWindowHandle();
 		
 		//Juste pour moi faite pas attention - Salim
 		if(iterator.hasNext())
@@ -51,7 +52,6 @@ public class CommonMethods {
 				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-				new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/form/input[5]")));
 				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
 				
 				vAccordAccessButton.click();
