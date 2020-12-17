@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
-	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
+	public static void login(WebDriver driver, String email, String password) {
 		
 		
 		Set<String> windows = driver.getWindowHandles();
@@ -52,7 +52,6 @@ public class CommonMethods {
 				WebElement vSignButton = driver.findElement(By.name("commit"));
 				vSignButton.click();
 				
-				Thread.sleep(2000);
 				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
 				
 				vAccordAccessButton.click();
