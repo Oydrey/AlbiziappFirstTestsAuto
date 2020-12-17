@@ -26,7 +26,7 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class CTRF127x1Voirsonnombredetrophées {
+public class CTRF10231_ConsulterUneEspeceDArbre {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -43,13 +43,18 @@ public class CTRF127x1Voirsonnombredetrophées {
     driver.quit();
   }
   @Test
-  public void test5() throws InterruptedException {
+  public void test50() throws InterruptedException {
     driver.get("https://albiziapp.ozytis.fr/");
     CommonMethods.login(driver, email, password);
     driver.manage().window().setSize(new Dimension(1050, 670));
-    driver.findElement(By.cssSelector(".fa-trophy")).click();
+    driver.findElement(By.cssSelector(".MuiIconButton-label > .MuiSvgIcon-root")).click();
+    driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) > .MuiListItemIcon-root")).click();
     Thread.sleep(5000);
-    driver.findElement(By.cssSelector(".MuiListItem-root:nth-child(3) .MuiListItemText-primary")).click();
+    driver.findElement(By.cssSelector(".MuiInputBase-input")).click();
+    Thread.sleep(5000);
+    driver.findElement(By.cssSelector(".MuiInputBase-input")).sendKeys("chene vert");
+    Thread.sleep(5000);
+    driver.findElement(By.cssSelector(".MuiListItemText-primary")).click();
     Thread.sleep(5000);
   }
 }
