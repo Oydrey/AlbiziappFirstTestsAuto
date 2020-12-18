@@ -13,3 +13,4 @@ CTRND01-9 : La notification disparait lorsqu'on clique dessus : Impossible de cl
 CTRND01-7 : Le timer de la notification s'arrête quand la souris est au-dessus : Impossible de passer la souris lors e l'execution du test
 CTRND01-4 : Recevoir une notification de relevé confirmé d'un relevé modifier : Pas de notif & modif non fonctionnelle
 CTRF29-1 : Ajouter les relevés hors-ligne: Impossible à faire car fonctionnalité non ajouté
+CTRND01-2 : Recevoir une notification de troph�e : Pas de notification sur Selenium
