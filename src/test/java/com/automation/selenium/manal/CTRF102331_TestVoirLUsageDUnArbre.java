@@ -33,33 +33,22 @@ public class CTRF102331_TestVoirLUsageDUnArbre {
 	}
 	
 	@Test
-	public void test() throws InterruptedException {
-		driver.get("https://albiziapp.ozytis.fr/");
-		CommonMethods.login(driver, email, password);
-		driver.manage().window().setSize(new Dimension(1050, 670));
-		driver.findElement(By.cssSelector(".MuiIconButton-label path")).click();
-		driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) .MuiTypography-root")).click();
-		driver.findElement(By.cssSelector(".MuiInputBase-input")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.cssSelector(".MuiInputBase-input")).sendKeys("chene vert");
-		Thread.sleep(5000);
-		driver.findElement(By.cssSelector(".MuiListItemText-primary")).click();
-		
-		{
-			WebElement element = driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) > .MuiTab-wrapper"));
-			Actions builder = new Actions(driver);
-			builder.moveToElement(element).perform();
-		}
-		
-		driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(2) > .MuiTab-wrapper")).click();
-		
-		{
-			WebElement element = driver.findElement(By.tagName("body"));
-			Actions builder = new Actions(driver);
-			builder.moveToElement(element, 0, 0).perform();
-		}
-		
-		Thread.sleep(5000);
-	}
+	 public void test() throws InterruptedException {
+    driver.get("https://albiziapp.ozytis.fr/");
+    CommonMethods.login(driver, email, password);
+    driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+    Thread.sleep(2000);
+	driver.findElement(By.xpath("/html/body/div[6]/div[3]/ul/div[1]")).click();
+	driver.navigate().refresh();
+	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div/input")).sendKeys("chene vert");
+	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/div/div[1]")).click();
+	driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/div/div/button[2]/span[1]")).click();
+    Thread.sleep(5000);
+    String usageText = "L'écorce se caractérise par une forte richesse en tanins. Elle était récoltée pour la tannerie. Le chêne vert a été une source de bois de chauffage depuis l'Antiquité.\r\n"
+    		+ "\r\n"
+    		+ "Ses fuits, les glands, servent également de nourriture pour le bétail en élevage extensif.";
+	assertEquals(usageText, driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[3]/p[2]")).getText());
+	
+  }
 }
 
