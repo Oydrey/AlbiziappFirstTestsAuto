@@ -32,7 +32,8 @@ public class CTRF191_TestInterfaceNonVisibleHorsConnexion {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("https://albiziapp.ozytis.fr/");
 		driver.manage().window().setSize(new Dimension(785, 625));
-		FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
-		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]")).isDisplayed());
+		String vCurrentURL = driver.getCurrentUrl();
+		assertEquals(vCurrentURL,"https://albiziapp.ozytis.fr/login");
+		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/div")).isDisplayed());
 	}
 }
