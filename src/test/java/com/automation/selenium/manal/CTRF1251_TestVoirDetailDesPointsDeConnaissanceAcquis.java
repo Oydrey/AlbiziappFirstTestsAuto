@@ -9,7 +9,7 @@ import com.automation.selenium.Constantes;
 
 public class CTRF1251_TestVoirDetailDesPointsDeConnaissanceAcquis {
 
-	public static void test(WebDriver driver) {
+	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
 		driver.manage().window().setSize(new Dimension(1050, 670));
 		driver.findElement(By.cssSelector(".fa-trophy")).click();

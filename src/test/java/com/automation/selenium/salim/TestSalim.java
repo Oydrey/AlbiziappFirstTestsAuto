@@ -10,16 +10,18 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import com.automation.selenium.Constantes;
+import com.automation.selenium.goran.CTRF031_TestZoomerSurLaCarte;
 
 /**
  * 
- * @author Oydrey
- * Classe qui permet de tester un test en particulier, il y a juste a changer le nom du test
+ * @author Salim
+ * Classe qui lance tout mes tests
  *
  */
 public class TestSalim {
-
+	
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
 	private WebDriver driver = null;
@@ -36,15 +38,50 @@ public class TestSalim {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
+	
+	@Test
+	public void testCTRF091_TestRetourSurPage() throws InterruptedException {
+		CTRF091_TestRetourSurPage.test(driver);
+	}
+	
+	@Test
+	public void testCTRF10231_TestConsulterEspeceArbre() throws InterruptedException {
+		CTRF10231_TestConsulterEspeceArbre.test(driver);
+	}
+	
+	@Test
+	public void testCTRF102321_TestVoirLaDescription() throws InterruptedException {
+		CTRF102321_TestVoirLaDescription.test(driver);
+	}
+	
+	@Test
+	public void testCTRF102341_TestVoirHabitatArbre() throws InterruptedException {
+		CTRF102341_TestVoirHabitatArbre.test(driver);
+	}
+	
+	@Test
+	public void testCTRF1111_TestAccederCarteApresConnexion() throws InterruptedException {
+		CTRF1111_TestAccederCarteApresConnexion.test(driver);
+	}
 
 	@Test
-	public void test() throws InterruptedException {
-		CTRF091_TestRetourSurPage.test(driver); 	//nom du test a changer : NomDeLaClasse.test(driver)
+	public void testCTRF291_TestAjouterReleveHorsLigne() {
+		CTRF291_TestAjouterReleveHorsLigne.test(driver);
+	}
+	
+	@Test
+	public void testCTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie() throws InterruptedException {
+		CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie.test(driver);
+	}
+	
+	@Test
+	public void testCTRND016_TestRecevoirNotificationPoints() throws InterruptedException {
+		CTRND016_TestRecevoirNotificationPoints.test(driver);
 	}
 
 	@After
 	public void teardown() {
 		driver.quit();
 	}
-	
+
 }

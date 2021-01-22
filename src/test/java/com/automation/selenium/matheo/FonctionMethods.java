@@ -14,7 +14,7 @@ import com.automation.selenium.CommonMethods;
 
 public class FonctionMethods {
 
-	public static void login(WebDriver driver, String email, String password) {
+	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
 		CommonMethods.login(driver, email, password);
 	}
 		/*driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

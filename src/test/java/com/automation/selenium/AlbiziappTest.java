@@ -41,22 +41,22 @@ public class AlbiziappTest {
 	}
 	
 	@Test
-	public void testCTRF031TestZoomerSurLaCarte() {
+	public void testCTRF031TestZoomerSurLaCarte() throws InterruptedException {
 		CTRF031_TestZoomerSurLaCarte.test(driver);
 	}
 	
 	@Test
-	public void testCTRF041TestDezoomerSurLaCarte() {
+	public void testCTRF041TestDezoomerSurLaCarte() throws InterruptedException {
 		CTRF041_TestDezoomerSurLaCarte.test(driver);
 	}
 	
 	@Test
-	public void testCTRF051TestConsulterMissionEnCoursDepuisLaCarte() {
+	public void testCTRF051TestConsulterMissionEnCoursDepuisLaCarte() throws InterruptedException {
 		CTRF051_TestConsulterMissionEnCoursDepuisLaCarte.test(driver);
 	}
 	
 	@Test
-	public void testCTRF061TestCentrerLaCarte() {
+	public void testCTRF061TestCentrerLaCarte() throws InterruptedException {
 		CTRF061_TestCentrerLaCarte.test(driver);
 	}
 	
@@ -71,7 +71,7 @@ public class AlbiziappTest {
 	}
 	
 	@Test
-	public void testCTRF201TestVoirSaPosition() {
+	public void testCTRF201TestVoirSaPosition() throws InterruptedException {
 		CTRF201_TestVoirSaPosition.test(driver);
 	}
 	

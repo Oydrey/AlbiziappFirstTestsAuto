@@ -2,6 +2,7 @@ package com.automation.selenium.salim;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,8 @@ import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
-
+	
+	
 	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
 

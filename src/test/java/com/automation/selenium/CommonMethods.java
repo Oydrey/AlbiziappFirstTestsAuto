@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
-	public static void login(WebDriver driver, String email, String password) {
+	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
 		
 		
 		Set<String> windows = driver.getWindowHandles();
@@ -53,14 +53,14 @@ public class CommonMethods {
 				vSignButton.click();
 				
 				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath(Constantes.XPATH_LOGIN_ACCORD_ACCESS_BOUTON));
-				
+				Thread.sleep(2000);
 				vAccordAccessButton.click();
 			}
 		}
 		
 		driver.switchTo().window(mainWindow);
 		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches(Constantes.URL_ALBIZIAPP_MAP));
-		driver.findElement(By.xpath(Constantes.XPATH_LOGIN_MAP_BOUTON)).click();	//centre la carte
+
 		
 	}
 	

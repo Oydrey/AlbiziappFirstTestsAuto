@@ -10,7 +10,7 @@ import com.automation.selenium.Constantes;
 
 public class CTRF031_TestZoomerSurLaCarte {
 
-	public static void test(WebDriver driver) {
+	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		String style = driver.findElement(By.xpath(Constantes.XPATH_MAP_STYLE_SCALE)).getAttribute("style");
 		String[] tbl = style.split(Constantes.REGEX_CTRF031);

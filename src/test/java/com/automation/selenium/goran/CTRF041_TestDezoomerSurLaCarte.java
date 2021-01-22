@@ -10,7 +10,7 @@ import com.automation.selenium.Constantes;
 
 public class CTRF041_TestDezoomerSurLaCarte {
 
-	public static void test(WebDriver driver) {
+	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		String style = driver.findElement(By.xpath(Constantes.XPATH_MAP_STYLE_SCALE)).getAttribute("style");
 		int scale = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);

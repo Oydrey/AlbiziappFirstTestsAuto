@@ -10,7 +10,7 @@ import org.openqa.selenium.Dimension;
 
 public class CTRF1021_TestConsulterOngletFlore {
 	
-	public static void test(WebDriver driver) {
+	public static void test(WebDriver driver) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(785, 625));
 		FonctionMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
 		driver.findElement(By.cssSelector(".MuiIconButton-label > .MuiSvgIcon-root")).click();
