@@ -1,35 +1,14 @@
 package com.automation.selenium.manal;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class CTRND013_TestRecevoirNotificationDeReleveConfirme {
-	
-	private WebDriver driver;
-	
-	@Before
-	public void setUp() throws MalformedURLException {
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome());
-	}
-	
-	@After
-	public void tearDown() {
-		driver.quit();
-	}
-	
-	@Test
-	public void CTRND01x3recevoirnotificationderelevéconfirmé() {
-		driver.get("https://albiziapp.ozytis.fr/");
+
+	public static void test(WebDriver driver) {
 		driver.manage().window().setSize(new Dimension(1050, 670));
 		driver.findElement(By.cssSelector(".MuiButtonBase-root:nth-child(1) > .MuiBottomNavigationAction-wrapper > .MuiSvgIcon-root")).click();
 		driver.findElement(By.cssSelector(".jss31")).click();
