@@ -1,4 +1,4 @@
-package com.automation.selenium.manal;
+package com.automation.selenium.goran;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,7 +19,7 @@ import com.automation.selenium.Constantes;
  * Classe qui permet de tester un test en particulier, il y a juste a changer le nom du test
  *
  */
-public class TestManal {
+public class TestGoran {
 	
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
@@ -40,7 +40,7 @@ public class TestManal {
 
 	@Test
 	public void test() throws InterruptedException {
-		CTRF10231_TestConsulterUneEspeceDArbre.test(driver); 	//nom du test a changer : NomDeLaClasse.test(driver)
+		CTRF061_TestCentrerLaCarte.test(driver); 	//nom du test a changer : NomDeLaClasse.test(driver)
 	}
 
 	@After
