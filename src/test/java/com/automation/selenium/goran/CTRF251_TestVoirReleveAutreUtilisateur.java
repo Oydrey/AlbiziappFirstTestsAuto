@@ -15,29 +15,22 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.Constantes;
 import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF251_TestVoirReleveAutreUtilisateur {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
-
-	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
-
-	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
 	
 	private WebDriver driver = null;
-	
-	private String email = "oydrey@gmail.com";
-	
-	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		driver.navigate().to(LOGIN_URL);
+		driver.navigate().to(Constantes.LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -46,15 +39,15 @@ public class CTRF251_TestVoirReleveAutreUtilisateur {
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(driver, email, password);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
-		String identifier = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("d");
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
+		CommonMethods.testRenseignerReleveSurLaCarteAvecHauteur2m5m(driver);
+		String identifier = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_DERNIER_RELEVE)).getAttribute("d");
 		CommonMethods.testSeDeconnecter(driver);
-		CommonMethods.login(driver, "tqlgroupe1@gmail.com", "tqlgroupe1");
-		String identifierDernierReleve = driver.findElement(By.cssSelector(".MuiListItem-root:nth-last-child(1)")).getAttribute("d");
+		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
+		String identifierDernierReleve = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_DERNIER_RELEVE)).getAttribute("d");
 		assertTrue(identifier.equals(identifierDernierReleve));
 		CommonMethods.testSeDeconnecter(driver);
-		CommonMethods.login(driver, email, password);
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		FonctionMethods.SuprimeReleve1ere(driver);
 	}
 	

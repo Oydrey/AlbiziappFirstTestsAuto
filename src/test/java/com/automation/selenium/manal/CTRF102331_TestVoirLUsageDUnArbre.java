@@ -13,6 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.automation.selenium.CommonMethods;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 

@@ -18,28 +18,21 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.Constantes;
 
 public class CTRF051_TestConsulterMissionEnCoursDepuisLaCarte {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
-
-	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
-
-	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
 	
 	private WebDriver driver = null;
-	
-	private String email = "oydrey@gmail.com";
-	
-	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		driver.navigate().to(LOGIN_URL);
+		driver.navigate().to(Constantes.LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -48,16 +41,16 @@ public class CTRF051_TestConsulterMissionEnCoursDepuisLaCarte {
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(driver, email, password);
-		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]")).isDisplayed());
-		String nomMission = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]")).getText();
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[2]")).click();
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
+		assertTrue(driver.findElement(By.xpath(Constantes.XPATH_MAP_MISSION_EN_COURS)).isDisplayed());
+		String nomMission = driver.findElement(By.xpath(Constantes.XPATH_MAP_MISSION_EN_COURS)).getText();
+		driver.findElement(By.xpath(Constantes.XPATH_MENU_BAS_MISSION_BOUTON)).click();
 		//verifier mission
 		boolean isPresent = false;
-		List <WebElement> parentElements = driver.findElements(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]//*"));
+		List <WebElement> parentElements = driver.findElements(ByXPath.xpath(Constantes.XPATH_MISSIONS_LISTE_MISSIONS));
 		for (WebElement element : parentElements) {
-			if ((element.findElement(By.xpath(".//div/div/div[2]/h2")).getText()).equals(nomMission)) {
-				isPresent = element.findElement(By.xpath(".//div/div/div[2]/div/div[1]/div")).isDisplayed();
+			if ((element.findElement(By.xpath(Constantes.XPATH_lISTE_MISSIONS_NOM_MISSION_SELECT)).getText()).equals(nomMission)) {
+				isPresent = element.findElement(By.xpath(Constantes.XPATH_LISTE_MISSIONS_BARRE_PROGRESSION_MISSION_SELECT)).isDisplayed();
 			}
 		}
 		assertTrue(isPresent);

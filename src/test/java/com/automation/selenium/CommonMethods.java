@@ -31,7 +31,7 @@ public class CommonMethods {
 		}
 		//fin			
 		
-		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
+		WebElement vSignInButton = driver.findElement(ByXPath.xpath(Constantes.XPATH_LOGIN_SIGN_IN_BOUTON));
 		vSignInButton.click();	
 		
 		windows = driver.getWindowHandles();
@@ -43,30 +43,30 @@ public class CommonMethods {
 			if(!mainWindow.equalsIgnoreCase(childWindow)) {
 				driver.switchTo().window(childWindow);
 				
-				WebElement emailField = driver.findElement(By.name("username"));
+				WebElement emailField = driver.findElement(By.name(Constantes.NAME_LOGIN_EMAIL_FIELD));
 				emailField.sendKeys(email);
 				
-				WebElement passwordField = driver.findElement(By.name("password"));
+				WebElement passwordField = driver.findElement(By.name(Constantes.NAME_LOGIN_PASSWORD_FIELD));
 				passwordField.sendKeys(password);
 				
-				WebElement vSignButton = driver.findElement(By.name("commit"));
+				WebElement vSignButton = driver.findElement(By.name(Constantes.NAME_LOGIN_COMMIT_BOUTON));
 				vSignButton.click();
 				
-				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath("/html/body/div/div[2]/div/form/input[5]"));
+				WebElement vAccordAccessButton = driver.findElement(ByXPath.xpath(Constantes.XPATH_LOGIN_ACCORD_ACCESS_BOUTON));
 				
 				vAccordAccessButton.click();
 			}
 		}
 		
 		driver.switchTo().window(mainWindow);
-		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches("https://albiziapp.ozytis.fr/map"));
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();//centre la carte
+		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches(Constantes.URL_ALBIZIAPP_MAP));
+		driver.findElement(By.xpath(Constantes.XPATH_LOGIN_MAP_BOUTON)).click();	//centre la carte
 		
 	}
 	
 	public static void testSeDeconnecter(WebDriver driver) {
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
-		driver.findElement(By.xpath("/html/body/div[6]/div[3]/ul/div[3]")).click();
+		driver.findElement(By.xpath(Constantes.XPATH_MENU_BOUTON_FEUILLE)).click();
+		driver.findElement(By.xpath(Constantes.XPATH_MENU_DECONNEXION_BOUTON)).click();
 		
 		String mainWindow = driver.getWindowHandle();
 		Set<String> windows = driver.getWindowHandles();
@@ -82,7 +82,7 @@ public class CommonMethods {
 		}
 		//fin			
 		
-		WebElement vSignInButton = driver.findElement(ByXPath.xpath("/html/body/div[1]/div/div/div/div/button"));
+		WebElement vSignInButton = driver.findElement(ByXPath.xpath(Constantes.XPATH_LOGIN_SIGN_IN_BOUTON));
 		vSignInButton.click();	
 		
 		windows = driver.getWindowHandles();
@@ -94,9 +94,9 @@ public class CommonMethods {
 			if(!mainWindow.equalsIgnoreCase(childWindow)) {
 				driver.switchTo().window(childWindow);
 				
-				driver.findElement(By.xpath("//*[@id=\"menu-icon\"]")).click();
-				driver.findElement(By.xpath("/html/body/header/nav[2]/div/a")).click();
-				driver.findElement(By.xpath("/html/body/header/nav[2]/div/div/a[4]")).click();
+				driver.findElement(By.xpath(Constantes.XPATH_OSM_MENU_ICONE)).click();
+				driver.findElement(By.xpath(Constantes.XPATH_OSM_MENU_PROFIL_BOUTON)).click();
+				driver.findElement(By.xpath(Constantes.XPATH_OSM_SE_DECONNECTER_BOUTON)).click();
 				driver.close();
 				
 			}
@@ -105,184 +105,218 @@ public class CommonMethods {
 		driver.switchTo().window(mainWindow);
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecAjoutPhoto(WebDriver driver) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurMoins2m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
 
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
-		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
-		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
-		confiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_MOINS_2M)).click();
 		
-		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
+		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
 		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteSansAjoutPhoto(WebDriver driver) throws InterruptedException {
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur2m5m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
-		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
-		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
-		confiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_2M_5M)).click();
+		
+		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
+		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecUniquementLeGenreEtAjoutPhoto(WebDriver driver) throws InterruptedException {
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur5m10m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
-		confiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_5M_10M)).click();
 		
-		WebElement inputPicture = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[6]/div/div/input"));
-		inputPicture.sendKeys("C:/Users/Oydrey/Pictures/arbre.jpg");
+		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
+		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecUniquementLeGenreSansAjoutPhoto(WebDriver driver) throws InterruptedException {
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurPlus10m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
-		confiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_PLUS_10M)).click();
+		
+		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
+		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecPeuConfiant(WebDriver driver) throws InterruptedException {
-		Thread.sleep(2000);
+	public static void testRenseignerReleveSurLaCarteAvecHauteurMoins2m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
-		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
-		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement peuConfiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[1]/span[1]"));
-		peuConfiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_MOINS_2M)).click();
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecMoyennementConfiant(WebDriver driver) throws InterruptedException {
+	public static void testRenseignerReleveSurLaCarteAvecHauteur2m5m(WebDriver driver) throws InterruptedException {		
 		Actions builder = new Actions(driver);
-		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
 		
-		WebElement vCreatePlan = driver.findElement(ByXPath.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]"));
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
 		vCreatePlan.click();
 		
-		WebElement genreCommun = driver.findElement(By.id("commonGenusSelect"));
-		WebElement genreLatin = driver.findElement(By.id("GenusSelect"));
-		WebElement especeCommune = driver.findElement(By.id("commonSpeciesSelect"));
-		WebElement especeLatine = driver.findElement(By.id("SpeciesSelect"));
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
 		
 		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
-		genreLatin.sendKeys("Albizia" + Keys.DOWN + Keys.ENTER);
-		especeCommune.sendKeys("Albizzia commun" + Keys.DOWN + Keys.ENTER);
-		especeLatine.sendKeys("Albizia Julibrissin" + Keys.DOWN + Keys.ENTER);	
+		//genre latin & espece commune & espece latine selectionnes auto
 		
-		WebElement moyennementConfiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[2]/span[1]"));
-		moyennementConfiant.click();
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_2M_5M)).click();
 
-		WebElement valider = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/button[1]"));
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
 		
 		Thread.sleep(2000);
 		
-		WebElement confirmValider = driver.findElement(By.cssSelector(".MuiButtonBase-root.MuiButton-textPrimary"));
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
 		confirmValider.click();
 	}
+	
+	public static void testRenseignerReleveSurLaCarteAvecHauteur5m10m(WebDriver driver) throws InterruptedException {		
+		Actions builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
+		
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
+		vCreatePlan.click();
+		
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
+		
+		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
+		//genre latin & espece commune & espece latine selectionnes auto
+		
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_5M_10M)).click();
+
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
+		valider.click();
+		
+		Thread.sleep(2000);
+		
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
+		confirmValider.click();
+	}
+	
+	public static void testRenseignerReleveSurLaCarteAvecHauteurPlus10m(WebDriver driver) throws InterruptedException {		
+		Actions builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
+		
+		WebElement vCreatePlan = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_MAP_CLICK_ON_MAP));
+
+		vCreatePlan.click();
+		
+		WebElement genreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
+		
+		genreCommun.sendKeys("Albizzia" + Keys.DOWN + Keys.ENTER);
+		//genre latin & espece commune & espece latine selectionnes auto
+		
+		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_PLUS_10M)).click();
+
+		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
+		valider.click();
+		
+		Thread.sleep(2000);
+		
+		WebElement confirmValider = driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION));
+		confirmValider.click();
+	}
+	
+	
 	
 }

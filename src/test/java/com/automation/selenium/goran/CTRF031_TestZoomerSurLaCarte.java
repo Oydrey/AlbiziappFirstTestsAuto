@@ -15,28 +15,21 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.Constantes;
 
 public class CTRF031_TestZoomerSurLaCarte {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
-	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
-
-	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
-	
 	private WebDriver driver = null;
-	
-	private String email = "oydrey@gmail.com";
-	
-	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		driver.navigate().to(LOGIN_URL);
+		driver.navigate().to(Constantes.LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -45,12 +38,17 @@ public class CTRF031_TestZoomerSurLaCarte {
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(driver, email, password);
-		String style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
-		int scale = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[1]")).click();
-		style = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div[7]")).getAttribute("style");
-		int scaleAfterZoom = Integer.valueOf(style.split(" ")[4].split("(")[1].split(")")[0]);
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
+		String style = driver.findElement(By.xpath(Constantes.XPATH_MAP_STYLE_SCALE)).getAttribute("style");
+		String[] tbl = style.split(Constantes.REGEX_CTRF031);
+		for (String string : tbl) {
+			System.out.println(string);
+		}
+		int scale = Integer.valueOf(style.split(Constantes.REGEX_CTRF031)[1]);
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_ZOOM)).click();
+		style = driver.findElement(By.xpath(Constantes.XPATH_MAP_STYLE_SCALE)).getAttribute("style");
+		int scaleAfterZoom = Integer.valueOf(style.split(Constantes.REGEX_CTRF031)[1]);
+		System.out.println(style.split(Constantes.REGEX_CTRF031)[1]);
 		assertTrue((scale*2)==scaleAfterZoom);
 	}
 	

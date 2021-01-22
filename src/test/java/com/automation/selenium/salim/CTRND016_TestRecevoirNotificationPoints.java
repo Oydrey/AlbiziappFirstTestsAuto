@@ -44,7 +44,7 @@ public class CTRND016_TestRecevoirNotificationPoints {
 	@Test
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhoto(driver);
+		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur2m5m(driver);
 		//Pas de notif
 		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 	}

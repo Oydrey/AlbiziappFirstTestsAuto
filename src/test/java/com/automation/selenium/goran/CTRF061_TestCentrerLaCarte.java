@@ -15,28 +15,21 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.CommonMethods;
+import com.automation.selenium.Constantes;
 
 public class CTRF061_TestCentrerLaCarte {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
-
-	private static final String SELENIUM_SERVER_URL = "http://127.0.0.1:4444/wd/hub";
-
-	private static final String LOGIN_URL = "https://albiziapp.ozytis.fr/login";
 	
 	private WebDriver driver = null;
-	
-	private String email = "oydrey@gmail.com";
-	
-	private String password = "azertyuiop";
 	
 	@Before
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
-		driver = new RemoteWebDriver(new URL(SELENIUM_SERVER_URL), CAPABILITY);
+		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 		
 		// And now use this to open base url
-		driver.navigate().to(LOGIN_URL);
+		driver.navigate().to(Constantes.LOGIN_URL);
 
 		// Ask to the driver to wait for 3s when an element is not found
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -45,10 +38,10 @@ public class CTRF061_TestCentrerLaCarte {
 	
 	@Test
 	public void test() throws InterruptedException {
-		CommonMethods.login(driver, email, password);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();
-		String position = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]")).getAttribute("style");
-		assertTrue(position.equals("transform: translate3d(0px, 0px, 0px);"));
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		String position = driver.findElement(By.xpath(Constantes.XPATH_MAP_STYLE)).getAttribute("style");
+		assertTrue(position.equals(Constantes.ASSERT_CTRF061_STYLE));
 	}
 	
 	@After

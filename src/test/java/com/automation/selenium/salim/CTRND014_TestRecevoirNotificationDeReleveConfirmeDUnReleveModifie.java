@@ -52,7 +52,7 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 	public void test() throws InterruptedException {
 		CommonMethods.login(driver, email, password);
 
-		CommonMethods.testRenseignerReleveSurLaCarteAvecPeuConfiant(driver);
+		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur2m5m(driver);
 
 		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches("https://albiziapp.ozytis.fr/map"));
 		driver.navigate().refresh();
