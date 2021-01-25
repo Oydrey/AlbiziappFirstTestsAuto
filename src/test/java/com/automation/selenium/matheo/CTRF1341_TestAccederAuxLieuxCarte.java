@@ -27,7 +27,7 @@ public class CTRF1341_TestAccederAuxLieuxCarte {
 			final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
 			final Matcher m = pattern.matcher(string);
 			if (m.find()) System.out.println("id oservation (releve) :"+m.group(1));
-			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
+			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[9]/button")).click();
 			Actions builder = new Actions(driver);
 			builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0).click();
 			builder.moveByOffset(1,1).click().build().perform();
