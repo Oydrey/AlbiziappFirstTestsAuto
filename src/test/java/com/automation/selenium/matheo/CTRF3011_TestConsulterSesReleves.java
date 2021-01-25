@@ -11,12 +11,11 @@ public class CTRF3011_TestConsulterSesReleves {
 		driver.manage().window().setSize(new Dimension(785, 625));
 		FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,niveuaxdeconfiant
-		FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","Peu confiant");
+		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,hauter(- de 2m,2m a 5m,5m a 10m,+ de 10m)
+		FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","- de 2m");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul")).isDisplayed());
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).isDisplayed());
-		FonctionMethods.SuprimeReleve1ere(driver);
-
+		//FonctionMethods.SuprimeReleve1ere(driver);
 	}
 }

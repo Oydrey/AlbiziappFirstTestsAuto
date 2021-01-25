@@ -40,7 +40,7 @@ public class TestMatheo {
 
 	@Test
 	public void test() throws InterruptedException {
-		CTRF10211_TestConsulterLesDifferentsArbres.test(driver); 	//nom du test a changer : NomDeLaClasse.test(driver)
+	CTRF3011_TestConsulterSesReleves.test(driver); 	//nom du test a changer : NomDeLaClasse.test(driver)
 	}
 
 	@After

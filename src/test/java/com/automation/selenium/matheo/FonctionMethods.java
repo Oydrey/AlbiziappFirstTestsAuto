@@ -46,7 +46,7 @@ public class FonctionMethods {
 		driver.switchTo().window(mainWindow);
 	}*/
 	
-	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String niveuaxdeconfiant) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String hauter) throws InterruptedException {		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		Actions builder = new Actions(driver);
@@ -64,21 +64,19 @@ public class FonctionMethods {
 		genreCommun.sendKeys(commonGenusSelect + Keys.DOWN + Keys.ENTER);
 		genreLatin.sendKeys(GenusSelect + Keys.DOWN + Keys.ENTER);
 		especeCommune.sendKeys(commonSpeciesSelect + Keys.DOWN + Keys.ENTER);
-		especeLatine.sendKeys(SpeciesSelect + Keys.DOWN + Keys.ENTER);	
+		//especeLatine.sendKeys(SpeciesSelect + Keys.DOWN + Keys.ENTER);	
 		
-		if (niveuaxdeconfiant == "Peu confiant") {
-		WebElement peuxconfiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[1]/span[1]"));
-		peuxconfiant.click();
-		} else if (niveuaxdeconfiant == "Moyennement confiant") {
-		WebElement moyconfiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[2]/span[1]"));
-		moyconfiant.click();
-		}else if (niveuaxdeconfiant == "Confiant") {
-		WebElement confiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[3]/span[1]"));
-		confiant.click();
+		if (hauter == "- de 2m") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
+		}else if (hauter == "2m a 5m") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[3]")).click();
+		} else if (hauter == "5m a 10m") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[4]")).click();
+		} else if (hauter == "+ de 10m") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[5]")).click();
 		}else {
-			System.out.println("aucun de niveaux de confiance mal (mis ou selectionais ou ecrit) par defaut : Peu confiant selectionais   ");
-			WebElement peuxconfiant = driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/label[1]/span[1]"));
-			peuxconfiant.click();
+			System.out.println("aucun hauter (mis ou selectionais ou ecrit) par defaut : - de 2m ");
+			driver.findElement(ByXPath.xpath("//*[@id=\\\"root\\\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
 		}
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
@@ -102,10 +100,10 @@ public class FonctionMethods {
 	}
 	
 	public static void SuprimeReleve1ere(WebDriver driver) {
-		 driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();	  
-		 driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]/p")).click();
-	     driver.findElement(By.xpath("//div[@id=\'root\']/div/div/div[5]/button/span")).click();
-	     driver.findElement(By.xpath("//div[3]/div/div[2]/button[2]/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();	  
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]/p")).click();
+	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[11]/button")).click();
+	    driver.findElement(By.xpath("//div[3]/div/div[2]/button[2]/span")).click();
 	}
 	 
 }
