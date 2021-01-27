@@ -15,6 +15,7 @@ public class CTRF1321_TestSupprimerUnReleve {
 		FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Bibacier","Eriobotrya","Bibacier du Japon","Eriobotrya Japonica","2m a 5m");
 		FonctionMethods.SuprimeReleve1ere(driver);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();
+		//test si le releve a bien etait suprimer
 		assertFalse(driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]")).size() > 0);
 	}
 }
