@@ -44,7 +44,7 @@ public class CTRF2621_GriserUneMission {
     driver.quit();
   }
   @Test
-  public void test57() {
+  public void test57() throws InterruptedException {
     driver.get("https://albiziapp.ozytis.fr/");
     CommonMethods.login(driver, email, password);
     driver.manage().window().setSize(new Dimension(1050, 670));

@@ -44,7 +44,7 @@ public class CTRF271_TestNeRéaliserQuUneMissionALaFois {
     driver.quit();
   }
   @Test
-  public void test55() {
+  public void test55() throws InterruptedException {
     driver.get("https://albiziapp.ozytis.fr/");
     CommonMethods.login(driver, email, password);
     driver.manage().window().setSize(new Dimension(1050, 670));

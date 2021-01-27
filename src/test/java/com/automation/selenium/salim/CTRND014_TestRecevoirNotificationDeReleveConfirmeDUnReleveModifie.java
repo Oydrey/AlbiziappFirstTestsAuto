@@ -64,11 +64,21 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
 
-		assertEquals("Persea", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[2]/div/p")).getText());
-		assertEquals("Avocatier", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div/p")).getText());
-		assertEquals("Persea Americana", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[4]/div/p")).getText());
-		assertEquals("Avocatier commun", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[5]/div/p")).getText());
+		assertEquals("Avocatier", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/table/tbody/tr[2]/td[4]")).getText());
+		assertEquals("Avocatier commun", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/table/tbody/tr[2]/td[5]")).getText());
 
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/table/tbody/tr/td[2]")).click();
+		
+		assertEquals("Persea", driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div[1]/table/tbody/tr[2]/td[4]")).getText());
+		assertEquals("Persea Americana", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/table/tbody/tr[2]/td[5]")).getText());
+	
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+		
+		CommonMethods.testSeDeconnecter(driver);
+		
+		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
+		
+		
 	}
 
 }
