@@ -106,6 +106,9 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurMoins2m(WebDriver driver) throws InterruptedException {		
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -134,6 +137,9 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur2m5m(WebDriver driver) throws InterruptedException {		
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -189,7 +195,10 @@ public class CommonMethods {
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurPlus10m(WebDriver driver) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurPlus10m(WebDriver driver) throws InterruptedException {	
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -218,6 +227,9 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecHauteurMoins2m(WebDriver driver) throws InterruptedException {		
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -243,6 +255,9 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecHauteur2m5m(WebDriver driver) throws InterruptedException {		
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -267,7 +282,10 @@ public class CommonMethods {
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteAvecHauteur5m10m(WebDriver driver) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteAvecHauteur5m10m(WebDriver driver) throws InterruptedException {
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
@@ -293,6 +311,9 @@ public class CommonMethods {
 	}
 	
 	public static void testRenseignerReleveSurLaCarteAvecHauteurPlus10m(WebDriver driver) throws InterruptedException {		
+		
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath(Constantes.XPATH_MAP)), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();

@@ -25,11 +25,11 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		new WebDriverWait(driver, 5).until(ExpectedConditions.urlMatches("https://albiziapp.ozytis.fr/map"));
 		driver.navigate().refresh();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")).click();
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
 
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveByOffset(200, 100).click().build().perform();
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[3]/button")).click();
 		WebElement GenreCommun = driver.findElement(By.xpath("//*[@id=\"commonGenusSelect\"]"));

@@ -11,7 +11,7 @@ public class CTRND016_TestRecevoirNotificationPoints {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
-		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteur2m5m(driver);
+		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurMoins2m(driver);
 		//Pas de notif
 		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 	}
