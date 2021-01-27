@@ -46,8 +46,8 @@ public class Constantes {
 	public static final String XPATH_MAP_BOUTON_DEZOOM = "//*[@id=\\\"root\\\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[2]";
 	
 	public static final String XPATH_MAP_MISSION_EN_COURS = "//*[@id=\\\"root\\\"]/div/div[1]/div[2]";
-	
-	public static final String XPATH_MAP_BOUTON_CENTRER = "//*[@id=\"root\"]/div/div[1]/button[1]";
+
+	public static final String XPATH_MAP_BOUTON_CENTRER = "/html/body/div[1]/div/div[1]/button[1]";
 	
 	public static final String XPATH_MAP_STYLE = "//*[@id=\\\"root\\\"]/div/div[1]/div[1]/div[1]";
 	
@@ -84,6 +84,12 @@ public class Constantes {
 	
 	//Releves
 	public static final String ID_GENRE_COMMUN = "commonGenusSelect";
+	
+	public static final String ID_ESPECE_COMMUNE = "speciesCommonNameSelect";
+	
+	public static final String ID_GENRE_LATIN = "genusSelect";
+	
+	public static final String ID_ESPECE_LATINE = "speciesNameSelect";
 	
 	
 	

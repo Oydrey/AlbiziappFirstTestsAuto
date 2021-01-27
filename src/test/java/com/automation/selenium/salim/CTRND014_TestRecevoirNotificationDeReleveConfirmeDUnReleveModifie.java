@@ -30,12 +30,15 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		Actions builder = new Actions(driver);
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
 		builder.moveByOffset(200, 100).click().build().perform();
-
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[3]/button")).click();
-		WebElement GenreCommun = driver.findElement(By.xpath("//*[@id=\"commonGenusSelect\"]"));
-		WebElement GenreLatin = driver.findElement(By.xpath("//*[@id=\"genusSelect\"]"));
-		WebElement EspeceCommune = driver.findElement(By.xpath("//*[@id=\"speciesCommonNameSelect\"]"));
-		WebElement EspeceLatine = driver.findElement(By.xpath("//*[@id=\"speciesNameSelect\"]"));
+		
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/span/span")).click(); //clique sur le "1"
+		
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button[1]")).click(); //clique sur le bt modifier
+		
+		WebElement GenreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
+		WebElement GenreLatin = driver.findElement(By.id(Constantes.ID_GENRE_LATIN));
+		WebElement EspeceCommune = driver.findElement(By.id(Constantes.ID_ESPECE_COMMUNE));
+		WebElement EspeceLatine = driver.findElement(By.id(Constantes.ID_ESPECE_LATINE));
 		EspeceLatine.click();
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[4]/div/div/div/div/button[1]")).click();
 		EspeceCommune.click();
@@ -59,7 +62,7 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 
 		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
-		builder.moveByOffset(100, 100).click().build().perform();
+		builder.moveByOffset(200, 100).click().build().perform();
 
 		assertEquals("Persea", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[2]/div/p")).getText());
 		assertEquals("Avocatier", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[3]/div/p")).getText());
