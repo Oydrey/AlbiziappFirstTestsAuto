@@ -5,7 +5,7 @@ public class Constantes {
 	/* Constants XPATH */
 	
 	//Releves	
-	public static final String XPATH_MAP = "//*[@id=\\\"root\\\"]/div/div[1]/div[1]";	
+	public static final String XPATH_MAP = "/html/body/div[1]/div/div[1]/div[1]";	
 	
 	public static final String XPATH_HAUTEUR_MOINS_2M = "/html/body/div[1]/div/div[1]/div[5]/table/tbody/tr/td[2]";
 	
