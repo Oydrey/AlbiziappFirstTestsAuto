@@ -47,7 +47,7 @@ public class Constantes {
 	
 	public static final String XPATH_MAP_MISSION_EN_COURS = "//*[@id=\\\"root\\\"]/div/div[1]/div[2]";
 	
-	public static final String XPATH_MAP_BOUTON_CENTRER = "//*[@id=\\\"root\\\"]/div/div[1]/button[1]";
+	public static final String XPATH_MAP_BOUTON_CENTRER = "/html/body/div[1]/div/div[1]/button[1]";
 	
 	public static final String XPATH_MAP_STYLE = "//*[@id=\\\"root\\\"]/div/div[1]/div[1]/div[1]";
 	
