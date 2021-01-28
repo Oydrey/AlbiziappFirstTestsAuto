@@ -17,10 +17,10 @@ public class AllTestsGoran {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
-	private WebDriver driver = null;
+	private static WebDriver driver = null;
 
 	@BeforeClass
-	public void setup() throws MalformedURLException, InterruptedException {
+	public static void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 
@@ -78,7 +78,7 @@ public class AllTestsGoran {
 	}
 
 	@AfterClass
-	public void teardown() {
+	public static void teardown() {
 		driver.quit();
 	}
 	
