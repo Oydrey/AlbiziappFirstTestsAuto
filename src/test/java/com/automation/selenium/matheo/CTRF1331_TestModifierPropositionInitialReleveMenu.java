@@ -20,13 +20,10 @@ public class CTRF1331_TestModifierPropositionInitialReleveMenu {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button[1]")).click();
 		String vCurrentURL = driver.getCurrentUrl();
 		assertTrue(vCurrentURL.matches("https://albiziapp.ozytis.fr/edit-observation/.*"));
+		
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"commonGenusSelect\"]")).isDisplayed());
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"genusSelect\"]")).isDisplayed());
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"speciesCommonNameSelect\"]")).isDisplayed());
 		assertTrue(driver.findElement(By.xpath("//*[@id=\"speciesNameSelect\"]")).isDisplayed());
-		
-		
-		
-
 	}
 }
