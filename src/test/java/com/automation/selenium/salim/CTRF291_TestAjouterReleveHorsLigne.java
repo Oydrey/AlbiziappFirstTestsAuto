@@ -1,4 +1,4 @@
-package Archive;
+package com.automation.selenium.salim;
 
 import static org.junit.Assert.assertEquals;
 
