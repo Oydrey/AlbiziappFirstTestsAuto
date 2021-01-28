@@ -78,6 +78,8 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+		
 		
 	}
 
