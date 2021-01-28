@@ -19,6 +19,7 @@ import org.openqa.selenium.Dimension;
 public class CTRF312_TestAjouterCommentaireSurAutreReleve {
 
 	public static void test(WebDriver driver) throws InterruptedException {
+		/*
 		driver.manage().window().setSize(new Dimension(785, 625));
 		//user 1
 		FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
@@ -58,5 +59,6 @@ public class CTRF312_TestAjouterCommentaireSurAutreReleve {
 		//user 1 suprime le releve pour que ca sois plus propre
 		FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
 		FonctionMethods.SuprimeReleve1ere(driver);
+		*/
 	}
 }
