@@ -1,6 +1,5 @@
 package com.automation.selenium.salim;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

@@ -4,15 +4,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.Constantes;
-import com.automation.selenium.goran.CTRF031_TestZoomerSurLaCarte;
 
 import Archive.CTRF291_TestAjouterReleveHorsLigne;
 
@@ -28,7 +27,7 @@ public class TestSalim {
 
 	private WebDriver driver = null;
 
-	@Before
+	@BeforeClass
 	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
@@ -81,7 +80,7 @@ public class TestSalim {
 		CTRND016_TestRecevoirNotificationPoints.test(driver);
 	}
 
-	@After
+	@AfterClass
 	public void teardown() {
 		driver.quit();
 	}

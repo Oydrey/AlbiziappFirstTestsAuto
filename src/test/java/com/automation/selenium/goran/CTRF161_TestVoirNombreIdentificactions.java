@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
-import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF161_TestVoirNombreIdentificactions {
 
@@ -22,7 +21,7 @@ public class CTRF161_TestVoirNombreIdentificactions {
 		text = driver.findElement(ByXPath.xpath(Constantes.XPATH_ARBORETUM_PREMIERE_ESPECE_NOMBRE_IDENTIFICATIONS_TEXTE)).getText();
 		int nombreIdentificationApresReleve = Integer.valueOf(text.split(" ")[3]);
 		assertTrue((nombreIdentificationAvantReleve + 1)==nombreIdentificationApresReleve);
-		FonctionMethods.SuprimeReleve1ere(driver);
+		CommonMethods.SuprimeReleve1ere(driver);
 	}
 	
 }
