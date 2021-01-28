@@ -64,10 +64,6 @@ public class TestSalim {
 		CTRF1111_TestAccederCarteApresConnexion.test(driver);
 	}
 
-	@Test
-	public void testCTRF291_TestAjouterReleveHorsLigne() {
-		CTRF291_TestAjouterReleveHorsLigne.test(driver);
-	}
 	
 	@Test
 	public void testCTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie() throws InterruptedException {
