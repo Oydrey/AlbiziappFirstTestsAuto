@@ -125,7 +125,7 @@ public class CommonMethods {
 		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_MOINS_2M)).click();
 		
 		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
-		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
+		inputPicture.sendKeys("C:\\Image\\5.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
@@ -156,7 +156,7 @@ public class CommonMethods {
 		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_2M_5M)).click();
 		
 		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
-		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
+		inputPicture.sendKeys("C:\\Image\\5.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
@@ -184,7 +184,7 @@ public class CommonMethods {
 		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_5M_10M)).click();
 		
 		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
-		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
+		inputPicture.sendKeys("C:\\Image\\5.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
@@ -215,7 +215,7 @@ public class CommonMethods {
 		driver.findElement(ByXPath.xpath(Constantes.XPATH_HAUTEUR_PLUS_10M)).click();
 		
 		WebElement inputPicture = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_PHOTO_INPUT));
-		inputPicture.sendKeys("C:\\Users\\Utilisateur\\Pictures\\5.jpg");
+		inputPicture.sendKeys("C:\\Image\\5.jpg");
 
 		WebElement valider = driver.findElement(ByXPath.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER));
 		valider.click();
