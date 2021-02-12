@@ -31,18 +31,8 @@ public class AllTestsManal {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
-
-	@Test
-	public void testCTRF10231TestConsulterUneEspeceDArbre() throws InterruptedException {
-		CTRF10231_TestConsulterUneEspeceDArbre.test(driver);
-	}
 	
-	@Test
-	public void testCTRF102311TestVoirLesPhotos() throws InterruptedException {
-		CTRF102311_TestVoirLesPhotos.test(driver);
-	}
-	
-	//TODO Ajouter autres tests
+	//TODO Ajouter tests
 
 	@AfterClass
 	public static void teardown() {

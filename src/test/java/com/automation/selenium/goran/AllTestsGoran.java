@@ -43,38 +43,13 @@ public class AllTestsGoran {
 	}
 	
 	@Test
-	public void testCTRF051TestConsulterMissionEnCoursDepuisLaCarte() throws InterruptedException {
-		CTRF051_TestConsulterMissionEnCoursDepuisLaCarte.test(driver);
-	}
-	
-	@Test
 	public void testCTRF061TestCentrerLaCarte() throws InterruptedException {
 		CTRF061_TestCentrerLaCarte.test(driver);
 	}
 	
 	@Test
-	public void testCTRF151TestVoirGenresIdentifies() throws InterruptedException {
-		CTRF151_TestVoirGenresIdentifies.test(driver);
-	}
-	
-	@Test
-	public void testCTRF161TestVoirNombreIdentifications() throws InterruptedException {
-		CTRF161_TestVoirNombreIdentificactions.test(driver);
-	}
-	
-	@Test
 	public void testCTRF201TestVoirSaPosition() throws InterruptedException {
 		CTRF201_TestVoirSaPosition.test(driver);
-	}
-	
-	@Test
-	public void testCTRF241TestDifferencierReleves() throws InterruptedException {
-		CTRF241_TestDifferencierReleves.test(driver);
-	}
-	
-	@Test
-	public void testCTRF251TestVoirReleveAutreUtilisateur() throws InterruptedException {
-		CTRF251_TestVoirReleveAutreUtilisateur.test(driver);
 	}
 
 	@AfterClass
