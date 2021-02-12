@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -19,7 +19,7 @@ public class AllTestsMatheo {
 
 	private static WebDriver driver = null;
 
-	@BeforeClass
+	@Before
 	public static void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
@@ -122,7 +122,7 @@ public class AllTestsMatheo {
 		CTRF32_TestAnnulerunCommentairePasEncorePoste.test(driver);
 	}
 	
-	@AfterClass
+	@After
 	public static void teardown() {
 		driver.quit();
 	}
