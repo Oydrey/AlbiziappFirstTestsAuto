@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 import org.openqa.selenium.Dimension;
@@ -16,7 +17,7 @@ public class CTRF1341_TestAccederAuxLieuxCarte {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(785, 625));
-		FonctionMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
+		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
 		
 		for (int i = 1 ; i < 3; i++) {
 			driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();	

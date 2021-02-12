@@ -1,93 +1,16 @@
 package com.automation.selenium;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import com.automation.selenium.goran.AllTestsGoran;
+import com.automation.selenium.manal.AllTestsManal;
+import com.automation.selenium.matheo.AllTestsMatheo;
+import com.automation.selenium.salim.TestSalim;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-import com.automation.selenium.goran.CTRF031_TestZoomerSurLaCarte;
-import com.automation.selenium.goran.CTRF041_TestDezoomerSurLaCarte;
-import com.automation.selenium.goran.CTRF051_TestConsulterMissionEnCoursDepuisLaCarte;
-import com.automation.selenium.goran.CTRF061_TestCentrerLaCarte;
-import com.automation.selenium.goran.CTRF151_TestVoirGenresIdentifies;
-import com.automation.selenium.goran.CTRF161_TestVoirNombreIdentificactions;
-import com.automation.selenium.goran.CTRF201_TestVoirSaPosition;
-import com.automation.selenium.goran.CTRF241_TestDifferencierReleves;
-import com.automation.selenium.goran.CTRF251_TestVoirReleveAutreUtilisateur;
-
+@RunWith(Suite.class)
+@SuiteClasses({ AllTestsGoran.class, AllTestsManal.class, AllTestsMatheo.class, TestSalim.class, TestsCommonMethods.class })
 public class AlbiziappTest {
-	
-	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
-
-	private WebDriver driver = null;
-	
-	@Before
-	public void setup() throws MalformedURLException, InterruptedException {
-		// Create a new instance of the driver
-		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
-		
-		// And now use this to open base url
-		driver.navigate().to(Constantes.LOGIN_URL);
-
-		// Ask to the driver to wait for 10s when an element is not found
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-	}
-	
-	@Test
-	public void testCTRF031TestZoomerSurLaCarte() throws InterruptedException {
-		CTRF031_TestZoomerSurLaCarte.test(driver);
-	}
-	
-	@Test
-	public void testCTRF041TestDezoomerSurLaCarte() throws InterruptedException {
-		CTRF041_TestDezoomerSurLaCarte.test(driver);
-	}
-	
-	@Test
-	public void testCTRF051TestConsulterMissionEnCoursDepuisLaCarte() throws InterruptedException {
-		CTRF051_TestConsulterMissionEnCoursDepuisLaCarte.test(driver);
-	}
-	
-	@Test
-	public void testCTRF061TestCentrerLaCarte() throws InterruptedException {
-		CTRF061_TestCentrerLaCarte.test(driver);
-	}
-	
-	@Test
-	public void testCTRF151TestVoirGenresIdentifies() throws InterruptedException {
-		CTRF151_TestVoirGenresIdentifies.test(driver);
-	}
-	
-	@Test
-	public void testCTRF161TestVoirNombreIdentifications() throws InterruptedException {
-		CTRF161_TestVoirNombreIdentificactions.test(driver);
-	}
-	
-	@Test
-	public void testCTRF201TestVoirSaPosition() throws InterruptedException {
-		CTRF201_TestVoirSaPosition.test(driver);
-	}
-	
-	@Test
-	public void testCTRF241TestDifferencierReleves() throws InterruptedException {
-		CTRF241_TestDifferencierReleves.test(driver);
-	}
-	
-	@Test
-	public void testCTRF251TestVoirReleveAutreUtilisateur() throws InterruptedException {
-		CTRF251_TestVoirReleveAutreUtilisateur.test(driver);
-	}
-	
-	@After
-	public void teardown() {
-		driver.quit();
-	}
 
 }

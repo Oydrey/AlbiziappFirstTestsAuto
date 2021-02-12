@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,10 +15,10 @@ public class TestsCommonMethods {
 	
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
 
-	private WebDriver driver = null;
+	private static WebDriver driver = null;
 	
-	@Before
-	public void setup() throws MalformedURLException, InterruptedException {
+	@BeforeClass
+	public static void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 		
@@ -89,8 +89,8 @@ public class TestsCommonMethods {
 		CommonMethods.testRenseignerReleveSurLaCarteAvecHauteurPlus10m(driver);
 	}
 	
-	@After
-	public void teardown() {
+	@AfterClass
+	public static void teardown() {
 		driver.quit();
 	}
 

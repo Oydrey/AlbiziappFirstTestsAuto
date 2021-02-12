@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
-import com.automation.selenium.matheo.FonctionMethods;
 
 public class CTRF241_TestDifferencierReleves {
 
@@ -22,7 +21,7 @@ public class CTRF241_TestDifferencierReleves {
 		assertTrue(colorDernierReleve.equals("0"));
 		CommonMethods.testSeDeconnecter(driver);
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD); 
-		FonctionMethods.SuprimeReleve1ere(driver);
+		CommonMethods.SuprimeReleve1ere(driver);
 	}
 	
 }

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 import org.openqa.selenium.Dimension;
@@ -17,7 +18,7 @@ public class CTRF1291_TestVoirTousLesStatuts {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(1000, 744));
-		FonctionMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
+		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
 		driver.findElement(By.xpath("//div[@id=\'root\']/div/div[2]/button[3]/span/span")).click();
 		WebElement nbstatut = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[4]/div[1]/p"));
 		//regex pour recuper la valeur du nombre de titre 
