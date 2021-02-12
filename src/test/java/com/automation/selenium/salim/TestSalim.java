@@ -63,17 +63,6 @@ public class TestSalim {
 		CTRF1111_TestAccederCarteApresConnexion.test(driver);
 	}
 
-	
-	@Test
-	public void testCTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie() throws InterruptedException {
-		CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie.test(driver);
-	}
-	
-	@Test
-	public void testCTRND016_TestRecevoirNotificationPoints() throws InterruptedException {
-		CTRND016_TestRecevoirNotificationPoints.test(driver);
-	}
-
 	@AfterClass
 	public static void teardown() {
 		driver.quit();
