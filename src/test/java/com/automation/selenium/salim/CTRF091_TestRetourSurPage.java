@@ -2,7 +2,6 @@ package com.automation.selenium.salim;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.automation.selenium.CommonMethods;

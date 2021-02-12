@@ -19,6 +19,8 @@ public class Constantes {
 	
 	public static final String XPATH_RELEVE_BOUTON_VALIDER = "/html/body/div[1]/div/div[1]/button[1]";
 	
+	public static final String XPATH_RELEVE_BOUTON_CONFIRMER = "//*[@id=\"root\"]/div/div[1]/div[3]/button";
+	
 	//Login
 	public static final String XPATH_LOGIN_SIGN_IN_BOUTON = "/html/body/div[1]/div/div/div/div/button";
 	
@@ -27,12 +29,12 @@ public class Constantes {
 	public static final String XPATH_LOGIN_MAP_BOUTON = "//*[@id=\\\"root\\\"]/div/div[1]/button[1]";
 	
 	//Menu
-	public static final String XPATH_MENU_BOUTON_FEUILLE = "//*[@id=\\\"root\\\"]/div/header/div/button";
+	public static final String XPATH_MENU_BOUTON_FEUILLE = "//*[@id=\"root\"]/div/header/div/button";
 	
 	public static final String XPATH_MENU_DECONNEXION_BOUTON = "/html/body/div[6]/div[3]/ul/div[3]";
 	
 	//Open Street Map (OSM)
-	public static final String XPATH_OSM_MENU_ICONE = "//*[@id=\\\"menu-icon\\\"]";
+	public static final String XPATH_OSM_MENU_ICONE = "//*[@id=\"menu-icon\"]";
 	
 	public static final String XPATH_OSM_MENU_PROFIL_BOUTON = "/html/body/header/nav[2]/div/a";
 	
