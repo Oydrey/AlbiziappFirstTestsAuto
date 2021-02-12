@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.text.SimpleDateFormat;
 
-public class CTRF313_AjoutePlusieurCommentaire {
+public class CTRF313_AjoutePlusieursCommentaires {
 
 	public static void test(WebDriver driver) throws InterruptedException {
 		driver.manage().window().setSize(new Dimension(785, 625));
