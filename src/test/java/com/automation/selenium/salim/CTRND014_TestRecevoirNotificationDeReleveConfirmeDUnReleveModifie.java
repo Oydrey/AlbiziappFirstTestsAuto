@@ -2,7 +2,6 @@ package com.automation.selenium.salim;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -74,11 +73,30 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 	
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
 		
+		Thread.sleep(2000);
+		
 		CommonMethods.testSeDeconnecter(driver);
 		
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/button")).click();
+		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
+
+		builder.moveToElement(driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[1]")), 0, 0);
+		builder.moveByOffset(200, 100).click().build().perform();
+			
+		driver.findElement(By.xpath(Constantes.XPATH_RELEVE_BOUTON_CONFIRMER)).click(); //clique sur le bt confirmer
+		
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/table/tbody/tr/td[3]")).click(); //clique sur moyen
+		
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[1]/table/tbody/tr[2]/td[6]")).click(); 
+		
+		driver.findElement(By.xpath(Constantes.XPATH_RELEVE_BOUTON_CONFIRMER)).click(); //clique sur le bt confirmer
+		
+		//Il manque la verification des notification
+		
+		
+		Thread.sleep(2000);
+
 		
 		
 	}

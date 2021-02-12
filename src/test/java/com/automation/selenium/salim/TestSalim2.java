@@ -12,7 +12,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.Constantes;
-import com.automation.selenium.goran.CTRF031_TestZoomerSurLaCarte;
 
 /**
  * 
