@@ -20,7 +20,7 @@ public class AllTestsMatheo {
 	private static WebDriver driver = null;
 
 	@Before
-	public static void setup() throws MalformedURLException, InterruptedException {
+	public void setup() throws MalformedURLException, InterruptedException {
 		// Create a new instance of the driver
 		driver = new RemoteWebDriver(new URL(Constantes.SELENIUM_SERVER_URL), CAPABILITY);
 
@@ -123,7 +123,7 @@ public class AllTestsMatheo {
 	}
 	
 	@After
-	public static void teardown() {
+	public void teardown() {
 		driver.quit();
 	}
 	
