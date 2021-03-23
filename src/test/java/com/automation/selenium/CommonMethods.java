@@ -1,5 +1,6 @@
 package com.automation.selenium;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -14,24 +15,30 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class CommonMethods {
 
 	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
 		
-		
 		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> iterator = windows.iterator();
-		driver.switchTo().window(iterator.next());
-		String mainWindow = driver.getWindowHandle();
-		
+
 		//Juste pour moi faite pas attention - Salim
 		if(iterator.hasNext())
 		{
-			driver.switchTo().window(iterator.next());
-			driver.close();
-			driver.switchTo().window(mainWindow);
+			ArrayList<String> fixwindow = new ArrayList<String> (driver.getWindowHandles());
+		    driver.switchTo().window(fixwindow.get(0));
+		    driver.close();
+		    driver.switchTo().window(fixwindow.get(1));
+			
 		}
-		//fin			
+		//fin		
+		
+		windows = driver.getWindowHandles();
+		iterator = windows.iterator();
+		driver.switchTo().window(iterator.next());
+		String mainWindow = driver.getWindowHandle();
+			
 		
 		WebElement vSignInButton = driver.findElement(ByXPath.xpath(Constantes.XPATH_LOGIN_SIGN_IN_BOUTON));
 		vSignInButton.click();	

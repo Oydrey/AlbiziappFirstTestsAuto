@@ -92,11 +92,12 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		
 		driver.findElement(By.xpath(Constantes.XPATH_RELEVE_BOUTON_CONFIRMER)).click(); //clique sur le bt confirmer
 		
-		//Il manque la verification des notification
+	
+		//Il manque les notifications sur selenium
 		
 		
 		Thread.sleep(2000);
-
+		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 		
 		
 	}

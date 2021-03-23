@@ -41,8 +41,8 @@ public class TestSalim2 {
 
 	
 	@Test
-	public void testCTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie() throws InterruptedException {
-		CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie.test(driver);
+	public void testsolo() throws InterruptedException {
+		CTRF091_TestRetourSurPage.test(driver);
 	}
 	
 

@@ -12,6 +12,7 @@ public class CTRND016_TestRecevoirNotificationPoints {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
 		CommonMethods.testRenseignerReleveSurLaCarteAvecAjoutPhotoAvecHauteurMoins2m(driver);
 		//Pas de notif
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 	}
 
