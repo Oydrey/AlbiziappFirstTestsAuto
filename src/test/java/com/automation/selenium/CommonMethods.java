@@ -21,18 +21,7 @@ public class CommonMethods {
 	public static void login(WebDriver driver, String email, String password) throws InterruptedException {
 		
 		Set<String> windows = driver.getWindowHandles();
-		Iterator<String> iterator = windows.iterator();
-
-		//Juste pour moi faite pas attention - Salim
-		if(iterator.hasNext())
-		{
-			ArrayList<String> fixwindow = new ArrayList<String> (driver.getWindowHandles());
-		    driver.switchTo().window(fixwindow.get(0));
-		    driver.close();
-		    driver.switchTo().window(fixwindow.get(1));
-			
-		}
-		//fin		
+		Iterator<String> iterator = windows.iterator();	
 		
 		windows = driver.getWindowHandles();
 		iterator = windows.iterator();
@@ -74,6 +63,7 @@ public class CommonMethods {
 	}
 	
 	public static void testSeDeconnecter(WebDriver driver) {
+		driver.navigate().refresh();
 		driver.findElement(By.xpath(Constantes.XPATH_MENU_BOUTON_FEUILLE)).click();
 		driver.findElement(By.xpath(Constantes.XPATH_MENU_DECONNEXION_BOUTON)).click();
 		

@@ -42,7 +42,7 @@ public class TestSalim2 {
 	
 	@Test
 	public void testsolo() throws InterruptedException {
-		CTRF091_TestRetourSurPage.test(driver);
+		CTRF078_NePasPouvoirConfirmerSaProposition.test(driver);
 	}
 	
 
