@@ -40,11 +40,6 @@ public class TestSalim {
 	}
 	
 	@Test
-	public void testCTRF0788NePasPouvoirConfirmerSaProposition() throws InterruptedException {
-		CTRF078_TestNePasPouvoirConfirmerSaProposition.test(driver);
-	}
-	
-	@Test
 	public void testCTRF091_TestRetourSurPage() throws InterruptedException {
 		CTRF091_TestRetourSurPage.test(driver);
 	}
