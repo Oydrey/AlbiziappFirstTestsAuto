@@ -94,9 +94,6 @@ public class CTRND014_TestRecevoirNotificationDeReleveConfirmeDUnReleveModifie {
 		
 	
 		//Il manque les notifications sur selenium
-		
-		
-		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='Toastify__toast-body' and contains(.,'12')]"));
 		
 		

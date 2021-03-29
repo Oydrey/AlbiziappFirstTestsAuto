@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 /**
@@ -45,6 +46,8 @@ public class TestMatheo {
 
 	@After
 	public void teardown() {
+		driver.navigate().to(Constantes.URL_ALBIZIAPP_MAP);
+		CommonMethods.SupprimerToutLesReleves(driver);
 		driver.quit();
 	}
 

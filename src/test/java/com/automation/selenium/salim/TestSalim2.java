@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 /**
@@ -42,12 +43,14 @@ public class TestSalim2 {
 	
 	@Test
 	public void testsolo() throws InterruptedException {
-		CTRF078_NePasPouvoirConfirmerSaProposition.test(driver);
+		CTRF078_TestNePasPouvoirConfirmerSaProposition.test(driver);
 	}
 	
 
 	@After
 	public void teardown() {
+		driver.navigate().to(Constantes.URL_ALBIZIAPP_MAP);
+		CommonMethods.SupprimerToutLesReleves(driver);
 		driver.quit();
 	}
 

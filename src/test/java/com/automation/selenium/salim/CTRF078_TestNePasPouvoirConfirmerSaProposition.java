@@ -1,6 +1,5 @@
 package com.automation.selenium.salim;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import org.openqa.selenium.By;
@@ -14,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
-public class CTRF078_NePasPouvoirConfirmerSaProposition {
+public class CTRF078_TestNePasPouvoirConfirmerSaProposition {
 
 	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
@@ -25,7 +24,6 @@ public class CTRF078_NePasPouvoirConfirmerSaProposition {
 		
 		CommonMethods.testSeDeconnecter(driver);
 		
-		
 		CommonMethods.login(driver, Constantes.LOGIN_OYDREY_EMAIL, Constantes.LOGIN_OYDREY_PASSWORD);
 		
 		driver.findElement(By.xpath(Constantes.XPATH_MAP_BOUTON_CENTRER)).click();
@@ -35,11 +33,11 @@ public class CTRF078_NePasPouvoirConfirmerSaProposition {
 		builder.moveByOffset(200, 100).click().build().perform();
 		
 		driver.findElement(By.xpath(Constantes.XPATH_RELEVE_BOUTON_PROPOSITION)).click();
-		
+				
 		WebElement GenreCommun = driver.findElement(By.id(Constantes.ID_GENRE_COMMUN));
-		WebElement GenreLatin = driver.findElement(By.id(Constantes.ID_GENRE_LATIN));
-		WebElement EspeceCommune = driver.findElement(By.id(Constantes.ID_ESPECE_COMMUNE));
-		WebElement EspeceLatine = driver.findElement(By.id(Constantes.ID_ESPECE_LATINE));
+		WebElement GenreLatin = driver.findElement(By.id("GenusSelect"));
+		WebElement EspeceCommune = driver.findElement(By.id("commonSpeciesSelect"));
+		WebElement EspeceLatine = driver.findElement(By.id("SpeciesSelect"));
 		EspeceLatine.click();
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[4]/div/div/div/div/button[1]")).click();
 		EspeceCommune.click();
@@ -59,6 +57,8 @@ public class CTRF078_NePasPouvoirConfirmerSaProposition {
 		driver.findElement(By.cssSelector(".MuiAutocomplete-popper")).click();
 		
 		driver.findElement(By.xpath(Constantes.XPATH_RELEVE_BOUTON_VALIDER)).click();
+		
+		//C'est cassé
 		
 		assertFalse(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[3]/button")).isDisplayed());
 		

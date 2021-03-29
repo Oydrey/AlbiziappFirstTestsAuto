@@ -396,5 +396,11 @@ public class CommonMethods {
 	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[11]/button")).click();
 	    driver.findElement(By.xpath("//div[3]/div/div[2]/button[2]/span")).click();
 	}
+	public static void SupprimerToutLesReleves(WebDriver driver) {
+		driver.navigate().refresh();
+		driver.findElement(By.xpath(Constantes.XPATH_MENU_BOUTON_FEUILLE)).click();
+		driver.findElement(By.xpath(Constantes.XPATH_MENU_SUPPRESSION_BOUTON)).click();
+		driver.findElement(By.cssSelector(Constantes.CSS_SELECTOR_RELEVE_BOUTON_CONFIMER_VALIDATION)).click();	
+	}
 	
 }

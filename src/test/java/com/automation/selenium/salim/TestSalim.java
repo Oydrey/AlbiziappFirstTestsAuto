@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
 /**
@@ -39,6 +40,11 @@ public class TestSalim {
 	}
 	
 	@Test
+	public void testCTRF0788NePasPouvoirConfirmerSaProposition() throws InterruptedException {
+		CTRF078_TestNePasPouvoirConfirmerSaProposition.test(driver);
+	}
+	
+	@Test
 	public void testCTRF091_TestRetourSurPage() throws InterruptedException {
 		CTRF091_TestRetourSurPage.test(driver);
 	}
@@ -62,9 +68,18 @@ public class TestSalim {
 	public void testCTRF1111_TestAccederCarteApresConnexion() throws InterruptedException {
 		CTRF1111_TestAccederCarteApresConnexion.test(driver);
 	}
+	
+	@Test
+	public void testCTRF1241_TestVoirSesPointsDeConnaissances() throws InterruptedException {
+		CTRF1241_TestVoirSesPointsDeConnaissances.test(driver);
+	}
+	
+	
 
 	@After
 	public void teardown() {
+		driver.navigate().to(Constantes.URL_ALBIZIAPP_MAP);
+		CommonMethods.SupprimerToutLesReleves(driver);
 		driver.quit();
 	}
 
