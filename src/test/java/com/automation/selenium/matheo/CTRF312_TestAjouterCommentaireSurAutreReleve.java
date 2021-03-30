@@ -19,18 +19,17 @@ import org.openqa.selenium.Dimension;
 public class CTRF312_TestAjouterCommentaireSurAutreReleve {
 
 	public static void test(WebDriver driver) throws InterruptedException {
-		/*
-		driver.manage().window().setSize(new Dimension(785, 625));
 		//user 1
-		FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
+		CommonMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,hauter(- de 2m,2m a 5m,5m a 10m,+ de 10m)
-		FonctionMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,1,1,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","2m a 5m");
+		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,hauter(- de 2m,2m a 5m,5m a 10m,+ de 10m),niv(Faible,Moyen,Haute,rien)
+		CommonMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,1,1,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","2m a 5m","Faible");
 		Thread.sleep(2000);
 		CommonMethods.testSeDeconnecter(driver);
 		//user 2
-		FonctionMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
+		CommonMethods.login(driver,"tqlgroupe1@gmail.com" , "tqlgroupe1");
 		//zoome
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div[1]/div/a[1]")).click();
@@ -41,24 +40,21 @@ public class CTRF312_TestAjouterCommentaireSurAutreReleve {
 		builder.moveByOffset(1,1).click().build().perform();
 		//commantaire ajout
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/div[2]/button")).click();
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/textarea")).sendKeys("test");
-	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/div[2]/button/span[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/button")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/textarea")).sendKeys("test");
+	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/button/span[1]")).click();
 		Date date = new Date(); //get date
 		//format
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy" );
 		sdf.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
-		WebElement increment = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/div[1]"));
+		WebElement increment = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[1]"));
 		assertEquals(increment.getText(),"Commentaires (1)");
-		WebElement elementnondate = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/div[2]/div[1]"));
+		WebElement elementnondate = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/div[1]"));
 		assertEquals(elementnondate.getText(),"TestGroupe1, le "+sdf.format(date));
-		WebElement text = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[13]/div[2]/div[2]"));
+		WebElement text = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/div[2]"));
 		assertEquals(text.getText(),"test");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		CommonMethods.testSeDeconnecter(driver);
-		//user 1 suprime le releve pour que ca sois plus propre
-		FonctionMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
-		FonctionMethods.SuprimeReleve1ere(driver);
-		*/
+		
+		CommonMethods.SupprimerToutLesReleves(driver);
 	}
 }

@@ -16,7 +16,6 @@ import org.openqa.selenium.WebElement;
 public class CTRF1281_TestVoirSonStatut {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(1382, 744));
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
 		driver.findElement(By.xpath("//div[@id=\'root\']/div/div[2]/button[3]/span/span")).click();
 		driver.findElement(By.xpath("//div[@id=\'root\']/div/div/ul/li[4]/div/span")).click();

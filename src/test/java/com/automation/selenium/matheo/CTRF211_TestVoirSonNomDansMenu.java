@@ -15,7 +15,6 @@ public class CTRF211_TestVoirSonNomDansMenu {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
-		driver.manage().window().setSize(new Dimension(785, 625));
 		//driver.navigate.refresh
 		((JavascriptExecutor)driver).executeScript("document.location.reload()");
 		driver.findElement(By.cssSelector(".MuiIconButton-label > .MuiSvgIcon-root")).click();

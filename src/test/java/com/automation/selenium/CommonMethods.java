@@ -337,7 +337,7 @@ public class CommonMethods {
 		confirmValider.click();
 	}
 	
-	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String hauter) throws InterruptedException {		
+	public static void testRenseignerReleveSurLaCarteSansPhoto(WebDriver driver,int x,int y,String commonGenusSelect,String GenusSelect,String commonSpeciesSelect,String SpeciesSelect,String hauter,String niv) throws InterruptedException {		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(5000);
 		Actions builder = new Actions(driver);
@@ -356,7 +356,6 @@ public class CommonMethods {
 		genreLatin.sendKeys(GenusSelect + Keys.DOWN + Keys.ENTER);
 		especeCommune.sendKeys(commonSpeciesSelect + Keys.DOWN + Keys.ENTER);
 		//especeLatine.sendKeys(SpeciesSelect + Keys.DOWN + Keys.ENTER);	
-		
 		if (hauter == "- de 2m") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
 		}else if (hauter == "2m a 5m") {
@@ -368,6 +367,13 @@ public class CommonMethods {
 		}else {
 			System.out.println("aucun hauter (mis ou selectionais ou ecrit) par defaut : - de 2m ");
 			driver.findElement(ByXPath.xpath("//*[@id=\\\"root\\\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
+		}
+		if (niv == "Faible") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[2]")).click();
+		}else if (niv == "Moyen") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[3]")).click();
+		} else if (niv == "Haute") {
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[4]")).click();
 		}
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));
@@ -393,10 +399,11 @@ public class CommonMethods {
 	public static void SuprimeReleve1ere(WebDriver driver) {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();	  
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]/p")).click();
-	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[11]/button")).click();
+	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/button")).click();
 	    driver.findElement(By.xpath("//div[3]/div/div[2]/button[2]/span")).click();
 	}
 	public static void SupprimerToutLesReleves(WebDriver driver) {
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 		driver.navigate().refresh();
 		driver.findElement(By.xpath(Constantes.XPATH_MENU_BOUTON_FEUILLE)).click();
 		driver.findElement(By.xpath(Constantes.XPATH_MENU_SUPPRESSION_BOUTON)).click();

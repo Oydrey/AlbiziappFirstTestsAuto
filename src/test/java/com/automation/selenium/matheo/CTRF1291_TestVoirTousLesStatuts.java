@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 public class CTRF1291_TestVoirTousLesStatuts {
 	
 	public static void test(WebDriver driver) throws InterruptedException {
-		driver.manage().window().setSize(new Dimension(1000, 744));
 		CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL , Constantes.LOGIN_TQL_PASSWORD);
 		driver.findElement(By.xpath("//div[@id=\'root\']/div/div[2]/button[3]/span/span")).click();
 		WebElement nbstatut = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[4]/div[1]/p"));

@@ -31,6 +31,8 @@ public class AllTestsMatheo {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
+
+		
 	
 	@Test
 	public void testCTRF101TestSeDeconnecter() throws InterruptedException {
@@ -56,7 +58,7 @@ public class AllTestsMatheo {
 	public void testCTRF121TestAccederScore() throws InterruptedException {
 		CTRF121_TestAccederScore.test(driver);
 	}
-
+			
 	@Test
 	public void testCTRF1272TestGagnerUnTrophee() throws InterruptedException {
 		CTRF1272_TestGagnerUnTrophee.test(driver);
@@ -81,15 +83,11 @@ public class AllTestsMatheo {
 	public void testCTRF1321TestSupprimerUnReleve() throws InterruptedException {
 		CTRF1321_TestSupprimerUnReleve.test(driver);
 	}
+
 	
 	@Test
 	public void testCTRF1331TestModifierPropositionInitialeReleveMenu() throws InterruptedException {
 		CTRF1331_TestModifierPropositionInitialReleveMenu.test(driver);
-	}
-	
-	@Test
-	public void testCTRF1341TestAccederAuxLieuxCarte() throws InterruptedException {
-		CTRF1341_TestAccederAuxLieuxCarte.test(driver);
 	}
 	
 	@Test
@@ -103,8 +101,8 @@ public class AllTestsMatheo {
 	}
 	
 	@Test
-	public void testCTRF3011TestConsulterSesReleves() throws InterruptedException {
-		CTRF3011_TestConsulterSesReleves.test(driver);
+	public void testCTRF1311TestConsulterSesReleves() throws InterruptedException {
+		CTRF1311_TestConsulterSesReleves.test(driver);
 	}
 	
 	@Test
@@ -121,7 +119,16 @@ public class AllTestsMatheo {
 	public void testCTRF32TestAnnulerUnCommentairePasEncorePoste() throws InterruptedException {
 		CTRF32_TestAnnulerunCommentairePasEncorePoste.test(driver);
 	}
-	
+	/*
+	@Test
+	public void testCTRF312TestAjouterCommentaireSurAutreReleve() throws InterruptedException {
+		CTRF312_TestAjouterCommentaireSurAutreReleve.test(driver);
+	}
+	@Test
+	public void testCTRF1341TestAccederAuxLieuxCarte() throws InterruptedException {
+		CTRF1341_TestAccederAuxLieuxCarte.test(driver);
+	}
+	*/
 	@After
 	public void teardown() {
 		driver.quit();
