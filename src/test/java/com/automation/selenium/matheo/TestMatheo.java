@@ -58,6 +58,8 @@ public class TestMatheo {
 	//CTRF311_TestAjouterUnCommentaireSonReleve.test(driver);
 	//CTRF313_AjoutePlusieursCommentaires.test(driver);
 	//CTRF32_TestAnnulerunCommentairePasEncorePoste.test(driver);
+	//CTRF1351_TestSuprimerPropositionInitialReleveMenu.test(driver);
+	CTRF1231_VoirManuereObtenirPointExploration.test(driver);
 		
 	//CTRF312_TestAjouterCommentaireSurAutreReleve.test(driver);//HH
 	//CTRF1341_TestAccederAuxLieuxCarte.test(driver);//HH

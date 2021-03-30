@@ -119,6 +119,17 @@ public class AllTestsMatheo {
 	public void testCTRF32TestAnnulerUnCommentairePasEncorePoste() throws InterruptedException {
 		CTRF32_TestAnnulerunCommentairePasEncorePoste.test(driver);
 	}
+	
+	@Test
+	public void testCTRF1351TestSuprimerPropositionInitialReleveMenu() throws InterruptedException {
+		CTRF1351_TestSuprimerPropositionInitialReleveMenu.test(driver);
+	}
+	
+	@Test
+	public void testCTRF1231VoirManuereObtenirPointExploration() throws InterruptedException {
+		CTRF1231_VoirManuereObtenirPointExploration.test(driver);
+	}
+	
 	/*
 	@Test
 	public void testCTRF312TestAjouterCommentaireSurAutreReleve() throws InterruptedException {

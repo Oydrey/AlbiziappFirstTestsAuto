@@ -356,6 +356,7 @@ public class CommonMethods {
 		genreLatin.sendKeys(GenusSelect + Keys.DOWN + Keys.ENTER);
 		especeCommune.sendKeys(commonSpeciesSelect + Keys.DOWN + Keys.ENTER);
 		//especeLatine.sendKeys(SpeciesSelect + Keys.DOWN + Keys.ENTER);	
+		
 		if (hauter == "- de 2m") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
 		}else if (hauter == "2m a 5m") {
@@ -364,16 +365,21 @@ public class CommonMethods {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[4]")).click();
 		} else if (hauter == "+ de 10m") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[5]/table/tbody/tr/td[5]")).click();
-		}else {
+		}
+		/*else {
 			System.out.println("aucun hauter (mis ou selectionais ou ecrit) par defaut : - de 2m ");
 			driver.findElement(ByXPath.xpath("//*[@id=\\\"root\\\"]/div/div[1]/div[5]/table/tbody/tr/td[2]")).click();
-		}
+		}*/
+		
 		if (niv == "Faible") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[2]")).click();
 		}else if (niv == "Moyen") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[3]")).click();
 		} else if (niv == "Haute") {
 			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[4]")).click();
+		}else {
+			System.out.println("aucun niveaux confiance (mis ou selectionais ou ecrit) par defaut : Faible ");
+			driver.findElement(ByXPath.xpath("//*[@id=\"root\"]/div/div[1]/div[7]/table/tbody/tr/td[2]")).click();
 		}
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/button[1]")));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[2]/button[2]")));

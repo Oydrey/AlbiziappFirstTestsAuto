@@ -15,7 +15,7 @@ public class CTRF32_TestAnnulerunCommentairePasEncorePoste {
 	public static void test(WebDriver driver) throws InterruptedException {
 		CommonMethods.login(driver,"toxav87996@onmail3.com" , "azertyuiop");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
-		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,hauter(- de 2m,2m a 5m,5m a 10m,+ de 10m),niv(Faible,Moyen,Haute,rien)
+		// diver,x,y,commonGenusSelect,GenusSelect,commonSpeciesSelect,SpeciesSelect,hauter(- de 2m,2m a 5m,5m a 10m,+ de 10m),niv(Faible,Moyen,Haute)
 		CommonMethods.testRenseignerReleveSurLaCarteSansPhoto(driver,100,100,"Albizzia","Albizia","Albizzia commun","Albizia Julibrissin","2m a 5m","Faible");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[5]")).click();	  
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/ul/li[1]/div[1]/p")).click();
