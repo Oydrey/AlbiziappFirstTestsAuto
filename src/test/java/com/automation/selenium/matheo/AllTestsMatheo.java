@@ -6,13 +6,15 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.automation.selenium.Constantes;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AllTestsMatheo {
 
 	private static final DesiredCapabilities CAPABILITY = DesiredCapabilities.chrome();
@@ -31,7 +33,12 @@ public class AllTestsMatheo {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
-
+	//ici les AAAA c'est pur qu'il fait toujour en primere
+	//ici c est un clean
+	@Test
+	public void AAAAclean() throws InterruptedException {
+		NO_test_JUSTE_clean.test(driver);
+	}
 		
 	
 	@Test
@@ -135,11 +142,18 @@ public class AllTestsMatheo {
 	public void testCTRF312TestAjouterCommentaireSurAutreReleve() throws InterruptedException {
 		CTRF312_TestAjouterCommentaireSurAutreReleve.test(driver);
 	}
+	
 	@Test
 	public void testCTRF1341TestAccederAuxLieuxCarte() throws InterruptedException {
 		CTRF1341_TestAccederAuxLieuxCarte.test(driver);
 	}
 	*/
+	//ici les zzzz c'est pur qu'il fait toujour en primere
+	//ici c est un clean
+	@Test
+	public void zzzzclean() throws InterruptedException {
+		NO_test_JUSTE_clean.test(driver);
+	}
 	@After
 	public void teardown() {
 		driver.quit();

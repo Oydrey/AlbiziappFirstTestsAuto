@@ -40,18 +40,18 @@ public class CTRF312_TestAjouterCommentaireSurAutreReleve {
 		builder.moveByOffset(1,1).click().build().perform();
 		//commantaire ajout
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/button")).click();
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/textarea")).sendKeys("test");
-	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/button/span[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/div[2]/button")).click();
+		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/textarea")).sendKeys("test");
+	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/div[2]/button/span[1]")).click();
 		Date date = new Date(); //get date
 		//format
 		SimpleDateFormat sdf = new SimpleDateFormat( "dd/MM/yyyy" );
 		sdf.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
-		WebElement increment = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[1]"));
+		WebElement increment = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/div[1]"));
 		assertEquals(increment.getText(),"Commentaires (1)");
-		WebElement elementnondate = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/div[1]"));
+		WebElement elementnondate = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/div[2]/div[1]"));
 		assertEquals(elementnondate.getText(),"TestGroupe1, le "+sdf.format(date));
-		WebElement text = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[12]/div[2]/div[2]"));
+		WebElement text = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[14]/div[2]/div[2]"));
 		assertEquals(text.getText(),"test");
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/button[1]")).click();
 		
