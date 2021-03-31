@@ -7,11 +7,7 @@ import org.openqa.selenium.Dimension;
 import com.automation.selenium.CommonMethods;
 import com.automation.selenium.Constantes;
 
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-public class CTRF10231_TestConsulterUneEspeceDArbre throws InterruptedException{
+public class CTRF10231_TestConsulterUneEspeceDArbre {
 	
   public static void test(WebDriver driver) throws InterruptedException {
     CommonMethods.login(driver, Constantes.LOGIN_TQL_EMAIL, Constantes.LOGIN_TQL_PASSWORD);
