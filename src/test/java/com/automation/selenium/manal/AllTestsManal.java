@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -31,37 +32,57 @@ public class AllTestsManal {
 		driver.manage().window().maximize();
 	}
 	
-	//TODO Ajouter tests
+	@Test
 	public void CTRF102311_TestVoirLesPhotos() throws InterruptedException {
 		CTRF102311_TestVoirLesPhotos.test(driver);
 	}
+	
+	@Test
 	public void CTRF102312_TestNaviguerEntreLesPhotos() throws InterruptedException {
 		CTRF102312_TestNaviguerEntreLesPhotos.test(driver);
 	}
+	
+	@Test
 	public void CTRF102331_TestVoirLUsageDUnArbre() throws InterruptedException {
 		CTRF102331_TestVoirLUsageDUnArbre.test(driver);
 	}
+	
+	@Test
 	public void CTRF10231_TestConsulterUneEspeceDArbre() throws InterruptedException {
 		CTRF10231_TestConsulterUneEspeceDArbre.test(driver);
 	}
+	
+	@Test
 	public void CTRF1211_TestVoirSesPointsDExploration() throws InterruptedException {
 		CTRF1211_TestVoirSesPointsDExploration.test(driver);
 	}
+	
+	@Test
 	public void CTRF1251_TestVoirDetailDesPointsDeConnaissanceAcquis() throws InterruptedException {
 		CTRF1251_TestVoirDetailDesPointsDeConnaissanceAcquis.test(driver);
 	}
+	
+	@Test
 	public void CTRF1261_TestVoirLaManièreDObtenirDesPointsDeConnaissance() throws InterruptedException {
 		CTRF1261_TestVoirLaManièreDObtenirDesPointsDeConnaissance.test(driver);
 	}
+	
+	@Test
 	public void CTRF1271_TestVoirSonNombreDeTrophees() throws InterruptedException {
 		CTRF1271_TestVoirSonNombreDeTrophees.test(driver);
 	}
+	
+	@Test
 	public void CTRF141_TestReprendreMissionEnCours() throws InterruptedException {
 		CTRF141_TestReprendreMissionEnCours.test(driver);
 	}
+	
+	@Test
 	public void CTRF181_TestAccederAuxMissionsDepuisLeMenuPrincipal() throws InterruptedException {
 		CTRF181_TestAccederAuxMissionsDepuisLeMenuPrincipal.test(driver);
 	}
+	
+	@Test
 	public void CTRF2611_TestVoirAvancementDeMissionEnCours() throws InterruptedException {
 		CTRF2611_TestVoirAvancementDeMissionEnCours.test(driver);
 	}
