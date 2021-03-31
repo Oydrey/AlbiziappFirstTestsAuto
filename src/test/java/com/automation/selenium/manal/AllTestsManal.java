@@ -32,50 +32,52 @@ public class AllTestsManal {
 	}
 	
 	//TODO Ajouter tests
-	public void testCTRF10231x1Voirlesphotos() throws InterruptedException {
-		CTRF10231x1Voirlesphotos.test(driver);
+	public void CTRF102311_TestVoirLesPhotos() throws InterruptedException {
+		CTRF102311_TestVoirLesPhotos.test(driver);
 	}
-	public void testCTRF10231x2Naviguerentrelesphotos() throws InterruptedException {
-		CTRF10231x2Naviguerentrelesphotos.test(driver);
+	public void CTRF102312_TestNaviguerEntreLesPhotos() throws InterruptedException {
+		CTRF102312_TestNaviguerEntreLesPhotos.test(driver);
 	}
-	public void testCTRF10233x1Voirlusagedunarbre() throws InterruptedException {
-		CTRF10233x1Voirlusagedunarbre.test(driver);
+	public void CTRF102331_TestVoirLUsageDUnArbre() throws InterruptedException {
+		CTRF102331_TestVoirLUsageDUnArbre.test(driver);
 	}
-	public void testCTRF1023x1Consulteruneespècedarbre() throws InterruptedException {
-		CTRF1023x1Consulteruneespècedarbre.test(driver);
+	public void CTRF10231_TestConsulterUneEspeceDArbre() throws InterruptedException {
+		CTRF10231_TestConsulterUneEspeceDArbre.test(driver);
 	}
-	public void testCTRF121x1Voirsespointsdexploration() throws InterruptedException {
-		CTRF121x1Voirsespointsdexploration.test(driver);
+	public void CTRF1211_TestVoirSesPointsDExploration() throws InterruptedException {
+		CTRF1211_TestVoirSesPointsDExploration.test(driver);
 	}
-	public void testCTRF1251Voirdétaildespointsdeconnaissanceacquis() throws InterruptedException {
-		CTRF1251Voirdétaildespointsdeconnaissanceacquis.test(driver);
+	public void CTRF1251_TestVoirDetailDesPointsDeConnaissanceAcquis() throws InterruptedException {
+		CTRF1251_TestVoirDetailDesPointsDeConnaissanceAcquis.test(driver);
 	}
-	public void testCTRF1261Voirlamanièredobtenirdespointsdeconnaissance() throws InterruptedException {
-		CTRF1261Voirlamanièredobtenirdespointsdeconnaissance.test(driver);
+	public void CTRF1261_TestVoirLaMani�reDObtenirDesPointsDeConnaissance() throws InterruptedException {
+		CTRF1261_TestVoirLaMani�reDObtenirDesPointsDeConnaissance.test(driver);
 	}
-	public void testCTRF127x1Voirsonnombredetrophées() throws InterruptedException {
-		CTRF127x1Voirsonnombredetrophées.test(driver);
+	public void CTRF1271_TestVoirSonNombreDeTrophees() throws InterruptedException {
+		CTRF1271_TestVoirSonNombreDeTrophees.test(driver);
 	}
-	public void testCTRF14x1Reprendremissionencours() throws InterruptedException {
-		CTRF14x1Reprendremissionencours.test(driver);
+	public void CTRF141_TestReprendreMissionEnCours() throws InterruptedException {
+		CTRF141_TestReprendreMissionEnCours.test(driver);
 	}
-	public void testCTRF18x1Accéderauxmissionsdepuislemenuprincipal() throws InterruptedException {
-		CTRF18x1Accéderauxmissionsdepuislemenuprincipal.test(driver);
+	public void CTRF181_TestAccederAuxMissionsDepuisLeMenuPrincipal() throws InterruptedException {
+		CTRF181_TestAccederAuxMissionsDepuisLeMenuPrincipal.test(driver);
 	}
-	public void testCTRF261x1VoirAvancementDeMissionEnCours() throws InterruptedException {
-		CTRF261x1VoirAvancementDeMissionEnCours.test(driver);
+	public void CTRF2611_TestVoirAvancementDeMissionEnCours() throws InterruptedException {
+		CTRF2611_TestVoirAvancementDeMissionEnCours.test(driver);
 	}
-	public void testCTRF2621_TestGriserUneMission() throws InterruptedException {
-		CTRF2621_TestGriserUneMission.test(driver);
-	}
-	public void testCTRF271_TestNeRéaliserQuUneMissionALaFois() throws InterruptedException {
-		CTRF271_TestNeRéaliserQuUneMissionALaFois.test(driver);
-	}
-	public void testCTRND019_TestNotificationDisparaitQuandOnCliqueDessus() throws InterruptedException {
-		CTRND019_TestNotificationDisparaitQuandOnCliqueDessus.test(driver);
-	}
-	public void testCTRND01x3recevoirnotificationderelevéconfirmé () throws InterruptedException {
-		CTRND01x3recevoirnotificationderelevéconfirmé.test(driver);
+	//public void testCTRF2621_TestGriserUneMission() throws InterruptedException {    /!\ Probl�me avec ton test
+	//	CTRF2621_TestGriserUneMission.test(driver);
+	//}
+	
+	//public void CTRF271_TestNeR�aliserQuUneMissionALaFois() throws InterruptedException {  /!\ Probl�me avec ton test
+	//	CTRF271_TestNeR�aliserQuUneMissionALaFois.test(driver);
+	//}
+	
+	//public void testCTRND019_TestNotificationDisparaitQuandOnCliqueDessus() throws InterruptedException {  /!\  Ton test existe pas
+	//	CTRND019_TestNotificationDisparaitQuandOnCliqueDessus.test(driver);
+	//}
+	public void CTRND013_TestRecevoirNotificationDeReleveConfirme() throws InterruptedException {
+		CTRND013_TestRecevoirNotificationDeReleveConfirme.test(driver);
 	}
 
 	@After
