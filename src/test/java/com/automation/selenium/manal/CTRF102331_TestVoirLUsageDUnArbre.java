@@ -1,6 +1,7 @@
 package com.automation.selenium.manal;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
 import com.automation.selenium.CommonMethods;
