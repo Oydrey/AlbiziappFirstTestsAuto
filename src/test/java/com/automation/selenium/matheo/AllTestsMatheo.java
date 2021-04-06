@@ -148,7 +148,7 @@ public class AllTestsMatheo {
 		CTRF1341_TestAccederAuxLieuxCarte.test(driver);
 	}
 	*/
-	//ici les zzzz c'est pur qu'il fait toujour en primere
+	//ici les zzzz c'est pur qu'il fait toujour en dernier
 	//ici c est un clean
 	@Test
 	public void zzzzclean() throws InterruptedException {
